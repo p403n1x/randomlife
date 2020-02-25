@@ -63,13 +63,8 @@ Groupcategory.delete_all
 puts "Creating Groupcategorys"
 sleep(1)
 puts "Go!"
-Groupcategory.create(group_id: 1,category_id: 5, name: "Cinema", duration: 3, selected: true)
-Groupcategory.create(group_id: 1,category_id: 5, name: "Museum", duration: 1.5, selected: false)
-Groupcategory.create(group_id: 1,category_id: 5, name: "Restaurant", duration: 2, selected: false)
-
-Groupcategory.create(group_id: 2,category_id: 2, name: "Bahamas", duration: 2400, selected: true)
-Groupcategory.create(group_id: 2,category_id: 2, name: "Thailand", duration: 240, selected: false)
-Groupcategory.create(group_id: 2,category_id: 2, name: "Paris", duration: 24, selected: false)
+Groupcategory.create(group_id: 1,category_id: 5)
+Groupcategory.create(group_id: 2,category_id: 2)
 puts "Seeding Groupcategorys completed"
 
 puts "All is done!!!"

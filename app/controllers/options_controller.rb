@@ -2,6 +2,7 @@ class OptionsController < ApplicationController
 before_action :set_category, only: [:index, :create]
 before_action :set_option, only: [:show, :update, :destroy]
 
+
   def index
     @options = Option.all
   end

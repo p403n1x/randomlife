@@ -1,4 +1,5 @@
 class OptionsController < ApplicationController
+
   def index
   end
 

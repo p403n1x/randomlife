@@ -1,10 +1,12 @@
 class OptionsController < ApplicationController
+before_action :authenticate_user!
+
 before_action :set_category, only: [:index, :create]
 before_action :set_option, only: [:show, :update, :destroy]
 
-
   def index
     @options = Option.all
+    @option = Option.new
   end
 
   def show
@@ -26,7 +28,6 @@ before_action :set_option, only: [:show, :update, :destroy]
     else
       render :show
     end
-
   end
 
   def destroy

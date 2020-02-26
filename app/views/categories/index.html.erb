@@ -9,7 +9,11 @@
     <div class="col-md-6">
       <li>
         <% @categories.each do |category| %>
-        <ul><%= category.title %></ul>
+        <ul><% if category.kind == "task" %>
+            <%= link_to category.title, new_category_task_path(category) %>
+          <% else %>
+            <%= link_to category.title, categories_path %>
+          <% end %></ul>
         <% end %>
       </li>
       <%= link_to "Create new category", new_category_path(@category) %>

@@ -1,12 +1,11 @@
 <div class="container">
 
-  <div class="text-justify">
   <div class="row">
     <div class="col-12">
-    <% @options.each do |option| %>
-      <p><%= option.name %></p>
-      <p><%= option.duration.round %> H</p>
-    <% end %>
+      <% @options.each do |option| %>
+        <p><%= option.name %></p>
+        <p><%= option.duration.round %> H</p>
+      <% end %>
     </div>
   </div>
   <br>

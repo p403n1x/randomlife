@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.user_id = current_user.id
     if @category.save
-      redirect_to categories_index_path
+      redirect_to categories_path
     else
       render :new
     end

@@ -11,8 +11,10 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.user_id = current_user.id
+    @group = current_user.group
+
     if @category.save
+      Groupcategory.create(group: @group, category: @category)
       redirect_to categories_path
     else
       render :new

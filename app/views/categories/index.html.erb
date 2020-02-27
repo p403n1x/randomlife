@@ -1,25 +1,27 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
-<p>Here you can see a list of all the categories (hopefully!)</p>
-
-
-
-<div class="container mt-5">
+<div class="container mt-3S">
   <div class="row">
     <div class="col-md-6">
-      <li>
+      <div class="add-category">
+        <p class='d-inline justify-content-between ml-2'>Add a category </p>
+        <%= link_to "+", new_category_path, class:'btn-action' %>
         <% @categories.each do |category| %>
-        <ul><% if category.kind == "task" %>
-            <%= link_to category.title, new_category_task_path(category) %>
-          <% else %>
-            <%= link_to category.title, categories_path %>
-          <% end %></ul>
-        <% end %>
-      </li>
-      <%= link_to "Create new category", new_category_path(@category) %>
+        <% category.kind == "task" %>
+          <div class="card mb-3">
+            <% if category.image %>
+            <%= image_tag category.image, class:"object-fit: cover", height: 100 %>
+            <% end %>
+            <div class="card-body">
 
+              <h4 class="card-title"><%= category.title %></h4>
+              <p class='d-inline justify-content-between ml-2'>Add a task </p>
+              <%= link_to "+", new_category_task_path(category), class:'btn-action' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
 
 

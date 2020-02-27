@@ -39,7 +39,7 @@
         <% category.kind == "task" %>
           <div class="card mb-3">
             <% if category.image %>
-            <%= image_tag category.image, class:"object-fit: cover", height: 100 %>
+            <%= image_tag category.image, style: "object-fit: cover", height: 100 %>
             <% end %>
             <div class="card-body">
               <h4 class="card-title"><%= category.title %></h4>

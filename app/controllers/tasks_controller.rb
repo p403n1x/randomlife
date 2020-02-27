@@ -19,11 +19,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.progress = "pending"
     @task.category = @category
-    @task.user_id = current_user.id
-
+    @task.user = current_user
     if @task.save
-      redirect_to categories_path
+      redirect_to task_path(@task)
     else
       render :new
     end
@@ -54,7 +54,7 @@ class TasksController < ApplicationController
   end
 
    def task_params
-    params.require(:task).permit(:name, :progress, :start_date)
+    params.require(:task).permit(:name, :start_date)
   end
 
 end

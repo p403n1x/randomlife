@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: [:show, :edit, :update] do
-    resources :assigned_tasks, only: [:edit, :update]
+    resources :assigned_tasks, only: [:index, :edit, :update]
   end
   resources :categories, only: [:index, :new, :create] do
     resources :tasks, only: [:show, :new, :create, :edit, :update], shallow: true

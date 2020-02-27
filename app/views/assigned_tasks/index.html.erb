@@ -1,7 +1,18 @@
-<ul>
-    <% @tasks.each do |task| %>
-    <li><%= task.name %></li>
-    <% end %>
-</ul>
-
+<div class="container">
+  <div class="row">
+    <div class="container formnew">
+      <% @tasks.each do |task| %>
+        <%= task.name  %>
+        <% if task.progress == "pending" %>
+          <%= simple_form_for task, url: user_assigned_task_path(current_user, task), method: :patch do |f| %>
+            <%= f.input :progress, input_html:{value: "done"}, as: :hidden %>
+            <%= f.submit "done" %>
+          <% end %>
+        <% else %>
+            <p> Check</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 

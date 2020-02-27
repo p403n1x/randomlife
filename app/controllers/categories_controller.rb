@@ -3,11 +3,10 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-  end
-
-  def new
     @category = Category.new
   end
+
+
 
   def create
     @category = Category.new(category_params)
@@ -17,7 +16,7 @@ class CategoriesController < ApplicationController
       Groupcategory.create(group: @group, category: @category)
       redirect_to categories_path
     else
-      render :new
+      render :index
     end
   end
 

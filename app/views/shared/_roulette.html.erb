@@ -1,0 +1,36 @@
+<div class="scene">
+  <div class="carousel" data-usrs="<%= @users %>" data-ucount="<%= @cellscount %>" data-choice="<%= @choiceindex %>">
+    <% @users.each do |user| %>
+      <div class="carousel__cell">
+        <div class="d-flex flex-column">
+          <div class="img-avt <%= user.id %>"><%= image_tag "#{user.image}", size: "70x70", class: "rounded-circle" %></div>
+          <div class="nkn-avt"><%= user.nickname %></div>
+
+        </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+<%= @choice.nickname %>
+<div class="carousel-options">
+  <p>
+    <button class="joker-button">Run</button>
+  </p>
+  <p>
+    Orientation:
+    <label>
+      <input type="radio" name="orientation" value="horizontal" checked />
+      horizontal
+    </label>
+    <label>
+      <input type="radio" name="orientation" value="vertical" />
+      vertical
+    </label>
+  </p>
+  <div class="grid m-3", style="display: grid;grid-template-columns: repeat(3, 1fr);grid-template-rows: repeat(<%= (@cellscount / 3).round %>, 1fr);grid-column-gap: 8px;grid-row-gap: 10px; border: 1px solid grey; border-radius: 2px;">
+    <% @users.each do |user| %>
+          <div data-id="<%= user.id %>"><%= image_tag "#{user.image}", size: "70x70", class: "rounded-circle m-3" %></div>
+    <% end %>
+  </div>
+</div>
+

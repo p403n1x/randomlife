@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Group.delete_all
 puts "groups ready to be seed!"
 sleep(1)
@@ -14,16 +15,32 @@ Group.create!(name: "Lacoloc", address: "labas", description: "maison", token: "
 Group.create!(name: "Lewagon", address: "ici", description: "ecole", token: "QSDGHJKLM")
 puts "Seeding Groups completed"
 
-
 User.delete_all
 puts "users ready to be seed!"
 sleep(1)
 puts "Go!"
 User.create!(first_name: "oliv", last_name: "B", email: "oliv@randomlife.fun", phone_number: "0609052213", nickname: "p403n1x", group_id: 1, password: "azerty")
 User.create!(first_name: "anaelle", last_name: "C", email: "anana@randomlife.fun", phone_number: "0619033283", nickname: "ananel", group_id: 1, password: "azerty")
-User.create!(first_name: "vanessa", last_name: "A", email: "vanesse@randomlife.fun", phone_number: "0600050332", nickname: "aunty", group_id: 2, password: "azerty")
-User.create!(first_name: "noemie", last_name: "D", email: "nonolemie@randomlife.fun", phone_number: "0602409553", nickname: "noef", group_id: 2, password: "azerty")
+User.create!(first_name: "robert", last_name: "Dupont", email: "bob@randomlife.fun", phone_number: "0665552243", nickname: "bob", group_id: 1, password: "azerty")
+User.create!(first_name: "yohan", last_name: "Durand", email: "yohan@randomlife.fun", phone_number: "0612087763", nickname: "yoyo", group_id: 1, password: "azerty")
+User.create!(first_name: "emanuelle", last_name: "Philippe", email: "emanuelle@randomlife.fun", phone_number: "0601152773", nickname: "Manu", group_id: 1, password: "azerty")
+User.create!(first_name: "francois", last_name: "Crao", email: "francois@randomlife.fun", phone_number: "0618833113", nickname: "franchoi", group_id: 1, password: "azerty")
+
+user = User.find_by(first_name: 'oliv')
+user.update(image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80")
+user = User.find_by(first_name: 'anaelle')
+user.update(image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80")
+user = User.find_by(first_name: 'robert')
+user.update(image: "https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=845&q=80")
+user = User.find_by(first_name: 'yohan')
+user.update(image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80")
+user = User.find_by(first_name: 'emanuelle')
+user.update(image: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
+user = User.find_by(first_name: 'francois')
+user.update(image: "https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")
+
 puts "Seeding Users completed"
+
 
 
 Category.delete_all

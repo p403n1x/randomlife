@@ -1,11 +1,15 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
 
+  skip_before_action :authenticate_user!
   before_action :set_category, only: [:new, :create]
   before_action :set_task, only: [:show, :edit, :update]
 
-
   def show
+    @users = User.where(group_id: current_user.group_id)
+    @cellscount = @users.count
+    @choice = @users.sample
+    @choice2 = @users.sample
+    @choiceindex = @users.find_index { |w| w == @choice }
   end
 
   def new

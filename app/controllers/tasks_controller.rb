@@ -8,6 +8,7 @@ class TasksController < ApplicationController
     @users = User.where(group_id: current_user.group_id)
     @cellscount = @users.count
     @choice = @users.sample
+    @task.update(user: @choice)
     @choice2 = @users.sample
     @choiceindex = @users.find_index { |w| w == @choice }
   end
@@ -21,7 +22,6 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.progress = "pending"
     @task.category = @category
-    @task.user = current_user
     if @task.save
       redirect_to task_path(@task)
     else
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-   def task_params
+  def task_params
     params.require(:task).permit(:name, :start_date)
   end
 

@@ -4,8 +4,7 @@
 <div class="container formnew">
   <%= simple_form_for @category do |f| %>
   <%= f.input :title %>
-  <%= f.input :kind %>
-  <%= f.input :image, as: :file %>
+  <%= f.input :kind, priority: [ "Task" ], collection: [ "Task", "Event"] %>
   <br>
   <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>
   <% end %>

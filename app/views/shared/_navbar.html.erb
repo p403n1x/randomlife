@@ -1,0 +1,27 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-nova">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "dice.jpg" %>
+    <strong><span id="banner-typed-text"></span></strong>
+  <% end %>
+  <div>
+    <% if user_signed_in? %>
+      <div class="dropdown dropleft">
+        <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png", class: "avatar dropdown-toggle" %>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Dashboard", categories_path, class: "dropdown-item" %>
+        </div>
+      </div>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+
+
+  </div>
+</div>
+
+

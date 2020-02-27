@@ -1,18 +1,19 @@
 class CategoriesController < ApplicationController
-  skip_before_action :authenticate_user!
+  #skip_before_action :authenticate_user!
+
   def index
     @categories = Category.all
   end
 
   def new
-    @categories = Category.new
+    @category = Category.new
   end
 
   def create
     @category = Category.new(category_params)
     @category.user_id = current_user.id
     if @category.save
-      redirect_to categories_index_path
+      redirect_to categories_path
     else
       render :new
     end

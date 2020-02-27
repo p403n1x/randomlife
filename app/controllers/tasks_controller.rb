@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
+
   skip_before_action :authenticate_user!
   before_action :set_category, only: [:new, :create]
-  before_action :set_category, only: [:edit, :update]
+  before_action :set_task, only: [:show, :edit, :update]
 
   def show
     @users = User.where(group_id: current_user.group_id)
@@ -12,6 +13,7 @@ class TasksController < ApplicationController
   end
 
   def new
+    @tasks = @category.tasks
     @task = Task.new
   end
 

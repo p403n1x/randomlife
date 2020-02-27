@@ -1,9 +1,9 @@
-  <div class="container center-div">
+<div class="container mt-2">
 
     <div class="row">
-      <div class="col-12">
-        <div class="card" style="width: 18rem;">
-          <%= image_tag "dice.jpg", class:"avatar-large-bordered displayed mt-4" %>
+
+        <div class="card mt-3" style="width: 27em; align-content: space-around;">
+          <%= image_tag @user.image, class:"avatar-large-bordered displayed mt-4" %>
           <div class="card-body text-center">
             <h5 class="d-inline card-title"><%= @user.first_name %> </h5>
             <h5 class="d-inline card-title"><%= @user.last_name %></h5>
@@ -16,10 +16,10 @@
             <li class="list-group-item"> <%= @user.phone_number %> </li>
           </ul>
           <div class="card-body">
-            <i class="far fa-edit btn-ghost"><%= link_to '', root_path %></i>
+            <%= link_to 'Edit', edit_user_path, class:'btn-ghost' %>
           </div>
         </div>
-      </div>
+
     </div>
 
 </div>

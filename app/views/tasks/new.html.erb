@@ -2,23 +2,16 @@
 
 
 <div class="container">
-  <ul>
-
-     <% @tasks.each do |task| %>
-      <li><%= task.name %></li>
-    <% end %>
-  </ul>
-
-
-  <div class="container formnew">
-    <%= simple_form_for [@category, @task] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :start_date %>
-    <br>
-    <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>
-    <% end %>
+  <div class="row">
+    <div class="container formnew">
+      <%= simple_form_for [@category, @task] do |f| %>
+        <%= f.input :name, label: "Who is doing..? (put your task)" %>
+        <%= f.input :start_date %>
+        <br>
+        <%= f.button :submit, 'Go', class:'btn btn-ghost' %>
+      <% end %>
+    </div>
   </div>
-
 </div>
 
 

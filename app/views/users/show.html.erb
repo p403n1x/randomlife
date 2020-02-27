@@ -1,3 +1,25 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<p>Details of the user</p>
+  <div class="container center-div">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card" style="width: 18rem;">
+          <%= image_tag "dice.jpg", class:"avatar-large-bordered displayed mt-4" %>
+          <div class="card-body text-center">
+            <h5 class="d-inline card-title"><%= @user.first_name %> </h5>
+            <h5 class="d-inline card-title"><%= @user.last_name %></h5>
+            <br>
+            <p class="card-text"><%= @user.nickname%></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> <%= @user.group.name %> </li>
+            <li class="list-group-item"> <%= @user.email %> </li>
+            <li class="list-group-item"> <%= @user.phone_number %> </li>
+          </ul>
+          <div class="card-body">
+            <i class="far fa-edit btn-ghost"><%= link_to '', root_path %></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

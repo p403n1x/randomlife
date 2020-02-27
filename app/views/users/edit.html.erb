@@ -1,0 +1,13 @@
+<div class="container mt-2 text-justify">
+
+  <%= simple_form_for @user do |f| %>
+    <%=  f.input :first_name, value: :first_name%>
+    <%=  f.input :last_name, value: :last_name%>
+    <%=  f.input :nickname, value: :nickname%>
+    <%=  f.input :email, value: :email%>
+    <%=  f.input :phone_number, value: :phone_number%>
+    <%=  f.input :image, value: :image%>
+    <%= f.submit 'OK', class:' d-block mb-3 btn-ghost' %>
+  <% end %>
+
+</div>

@@ -9,7 +9,6 @@ class TasksController < ApplicationController
     @cellscount = @users.count
     @choice = @users.sample
     @task.update(user: @choice)
-    @choice2 = @users.sample
     @choiceindex = @users.find_index { |w| w == @choice }
   end
 

@@ -1,11 +1,11 @@
-<div class="container mt-2">
+<div class="container mt-3">
 
     <div class="row">
 
-        <div class="card height-100vh" style="width: 27em; align-content: space-around;">
+        <div class="height-100vh" style="width: 27em; align-content: space-around;">
           <%= image_tag @user.image, class:"avatar-large-bordered displayed mt-4" %>
           <div class="card-body text-center">
-            <div class="card p-3 ">
+            <div class="card-profile p-3 ">
               <h5 class="d-inline card-title"><%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %> </h5>
               <p class="card-title"><%= @user.nickname%></p>
 
@@ -14,15 +14,15 @@
           <div class="card-body">
           </div>
 
-            <div class="card mb-2">
+            <div class="card-profile mb-2">
               <p class="card-body m-2"> <%= @user.group.name %> </p>
             </div>
 
-            <div class="card mb-2">
+            <div class="card-profile mb-2">
               <p class="card-body"> <%= @user.email %> </p>
             </div>
 
-            <div class="card mb-2">
+            <div class="card-profile mb-2">
               <p class="card-body"> <%= @user.phone_number %> </p>
             </div>
 

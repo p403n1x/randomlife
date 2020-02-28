@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row ">
     <div class="col-md-6">
-      <button type="button" class="btn-ghost" data-toggle="modal" data-target="#exampleModal">Add category</button>
+      <button type="button" class="btn-ghost mb-3" style="background-color: white" data-toggle="modal" data-target="#exampleModal">Add category</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -15,17 +15,13 @@
                 <div class="container formnew">
                 <%= simple_form_for @category do |f| %>
                 <%= f.input :title %>
-                <%= f.input :kind, priority: [ "Task" ], collection: [ "Task", "Event"] %>
                 <%= f.input :photo, as: :file %>
                 <br>
                 <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>
                 <% end %>
               </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+
             </div>
           </div>
         </div>
@@ -35,7 +31,7 @@
         <% category.kind = "task" %>
           <div class="card mb-3">
             <% if category.photo.attached? %>
-            <%= image_tag category.photo, style: "object-fit: cover", height: 100 %>
+            <%= image_tag category.photo, style: 'object-fit: cover', height: 100 %>
             <% end %>
             <div class="card-body">
               <h4 class="card-title"><%= category.title %></h4>

@@ -14,11 +14,12 @@
   border-radius: 30%;
 }
 
-.card {
+.card-profile {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;
   border-color: light-green;
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  background-color: white;
 }

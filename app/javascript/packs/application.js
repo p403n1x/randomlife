@@ -6,3 +6,4 @@ loadDynamicBannerText();
 import { initRoulette } from '../components/roulette';
 initRoulette();
 
+import "../plugins/flatpickr";

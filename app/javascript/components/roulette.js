@@ -9,24 +9,44 @@ var cells = carousel.querySelectorAll('.carousel__cell');
   var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
   var radius, theta;
   let cellCount = carousel.dataset.ucount;
+  let winR = document.getElementById('winner');
+  let launch = document.getElementById('launch');
+
+
+  function winnerFunction() {
+  if(getComputedStyle(winR).display != "none"){
+    winR.style.display = "none";
+  } else {
+    winR.style.display = "block";
+  }
+}
+
+function hideLaunchFunction() {
+  if(getComputedStyle(launch).display != "none"){
+    launch.style.display = "none";
+  } else {
+    launch.style.display = "initial";
+  }
+}
 
     function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
     function rotateCarousel() {
-    var angle = (theta * selectedIndex * -1) + (3 * cellCount) *(theta * selectedIndex * -1);
+    var angle = (theta * selectedIndex * -1) + (2 * cellCount) * (theta * selectedIndex * -1);
     carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
     rotateFn + '(' + angle + 'deg)';
   };
 
  const jokerButton = document.querySelector('.joker-button');
   jokerButton.addEventListener( 'click', function() {
-    selectedIndex = carousel.dataset.choice + 5 ;
-    rotateCarousel();
-  sleep(1000).then(() => {
+    hideLaunchFunction();
+    changeCarousel();
     selectedIndex = carousel.dataset.choice;
     rotateCarousel();
+    sleep(5000).then(() => {
+    winnerFunction();
   });
   });
 
@@ -45,11 +65,11 @@ var cells = carousel.querySelectorAll('.carousel__cell');
         // hidden cell
         cell.style.opacity = 0;
         cell.style.transform = 'none';
-      }
-    }
+      };
+    };
 
     rotateCarousel();
-  }
+  };
 
   var orientationRadios = document.querySelectorAll('input[name="orientation"]');
   ( function() {

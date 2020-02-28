@@ -16,6 +16,7 @@
                 <%= simple_form_for @category do |f| %>
                 <%= f.input :title %>
                 <%= f.input :kind, priority: [ "Task" ], collection: [ "Task", "Event"] %>
+                <%= f.input :photo, as: :file %>
                 <br>
                 <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>
                 <% end %>
@@ -31,10 +32,10 @@
 
 
         <% @categories.each do |category| %>
-        <% category.kind == "task" %>
-          <div class="card my-3">
-            <% if category.image %>
-            <%= image_tag category.image, style: "object-fit: cover", height: 100 %>
+        <% category.kind = "task" %>
+          <div class="card mb-3">
+            <% if category.photo.attached? %>
+            <%= image_tag category.photo, style: "object-fit: cover", height: 100 %>
             <% end %>
             <div class="card-body">
               <h4 class="card-title"><%= category.title %></h4>

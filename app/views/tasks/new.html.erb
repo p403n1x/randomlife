@@ -1,16 +1,17 @@
-<h1><%= @category.title %></h1>
-
-
 <div class="container">
+  <h1 class="my-3"><%= @category.title %></h1>
   <div class="row">
-    <div class="container formnew">
+    <div class="container formnew my-4">
       <%= simple_form_for [@category, @task] do |f| %>
-        <%= f.input :name, label: "Who is doing..? (put your task)" %>
-        <%= f.input :start_date %>
+        <%= f.input :name, label: "Who is doing...? (put your task)" %>
+        <%= f.input :start_date, as: :string, input_html:{id: 'calendar'} %>
         <br>
-        <%= f.button :submit, 'Go', class:'btn btn-ghost' %>
+        <%= f.button :submit, 'OK!', class:'btn btn-ghost' %>
       <% end %>
     </div>
+  </div>
+  <div class="row">
+    <iframe src="https://giphy.com/embed/cIbyhEK4UscjvE5ohe" width="480" height="266" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
   </div>
 </div>
 

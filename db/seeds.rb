@@ -7,7 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Group.delete_all
+
+# Groupcategory.destroy_all
+# Group.destroy_all
+# User.destroy_all
+# Category.destroy_all
+# Task.destroy_all
+# Option.destroy_all
+
+
 puts "groups ready to be seed!"
 sleep(1)
 puts "Go!"
@@ -15,16 +23,16 @@ Group.create!(name: "Lacoloc", address: "labas", description: "maison", token: "
 Group.create!(name: "Lewagon", address: "ici", description: "ecole", token: "QSDGHJKLM")
 puts "Seeding Groups completed"
 
-User.delete_all
+
 puts "users ready to be seed!"
 sleep(1)
 puts "Go!"
-User.create!(first_name: "oliv", last_name: "B", email: "oliv@randomlife.fun", phone_number: "0609052213", nickname: "p403n1x", group_id: 1, password: "azerty")
-User.create!(first_name: "anaelle", last_name: "C", email: "anana@randomlife.fun", phone_number: "0619033283", nickname: "ananel", group_id: 1, password: "azerty")
-User.create!(first_name: "robert", last_name: "Dupont", email: "bob@randomlife.fun", phone_number: "0665552243", nickname: "bob", group_id: 1, password: "azerty")
-User.create!(first_name: "yohan", last_name: "Durand", email: "yohan@randomlife.fun", phone_number: "0612087763", nickname: "yoyo", group_id: 1, password: "azerty")
-User.create!(first_name: "emanuelle", last_name: "Philippe", email: "emanuelle@randomlife.fun", phone_number: "0601152773", nickname: "Manu", group_id: 1, password: "azerty")
-User.create!(first_name: "francois", last_name: "Crao", email: "francois@randomlife.fun", phone_number: "0618833113", nickname: "franchoi", group_id: 1, password: "azerty")
+User.create!(first_name: "oliv", last_name: "B", email: "oliv@randomlife.fun", phone_number: "0609052213", nickname: "p403n1x", group_id: Group.first.id, password: "azerty")
+User.create!(first_name: "anaelle", last_name: "C", email: "anana@randomlife.fun", phone_number: "0619033283", nickname: "ananel", group_id: Group.first.id, password: "azerty")
+User.create!(first_name: "robert", last_name: "Dupont", email: "bob@randomlife.fun", phone_number: "0665552243", nickname: "bob", group_id: Group.first.id, password: "azerty")
+User.create!(first_name: "yohan", last_name: "Durand", email: "yohan@randomlife.fun", phone_number: "0612087763", nickname: "yoyo", group_id: Group.first.id, password: "azerty")
+User.create!(first_name: "emanuelle", last_name: "Philippe", email: "emanuelle@randomlife.fun", phone_number: "0601152773", nickname: "Manu", group_id: Group.first.id, password: "azerty")
+User.create!(first_name: "francois", last_name: "Crao", email: "francois@randomlife.fun", phone_number: "0618833113", nickname: "franchoi", group_id: Group.first.id, password: "azerty")
 
 user = User.find_by(first_name: 'oliv')
 user.update(image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80")
@@ -43,48 +51,82 @@ puts "Seeding Users completed"
 
 
 
-Category.delete_all
+
 puts "categories ready to be seed!"
 sleep(1)
 puts "Go!"
-Category.create!(title: 'Holidays', kind: 'event', image: "https://picsum.photos/200/300")
-Category.create!(title: 'Cleaning', kind: 'task', image: "https://picsum.photos/200/300")
-Category.create!(title: 'Admin', kind: 'task', image: "https://picsum.photos/200/300")
-Category.create!(title: 'Fixing stuff', kind: 'task', image: "https://picsum.photos/200/300")
-Category.create!(title: 'Going out', kind: 'event', image: "https://picsum.photos/200/300")
-Category.create!(title: 'Shopping', kind: 'event', image: "https://picsum.photos/200/300")
+
+puts "categories ready to be seed!"
+sleep(1)
+puts "Go!"
+puts "Creating Categories"
+# file = File.open("../app/assets/images/holidays.jpg")
+# d =Category.new(title: 'Holidays', kind: 'event')
+# d.image.attach(io: file, filename: "holidays.jpg", content_type: "image/jpg")
+# d.save!
+# file = File.open("../app/assets/images/cleaning.jpg")
+# d =Category.new(title: 'Cleaning', kind: 'task')
+# d.image.attach(io: file, filename: "cleaning.jpg", content_type: "image/jpg")
+# d.save!
+# file = File.open("../app/assets/images/admin.jpg")
+# d = Category.new(title: 'Admin', kind: 'task')
+# d.image.attach(io: file, filename: "admin.jpg", content_type: "image/jpg")
+# d.save!
+# file = File.open("../app/assets/images/fixing.jpg")
+# d =Category.new(title: "Fixing stuff", kind: 'task')
+# d.image.attach(io: file, filename: "fixing.jpg", content_type: "image/jpg")
+# d.save!
+# file = File.open("../app/assets/images/out.jpg")
+# d =Category.new(title: "Going out", kind: "event")
+# d.image.attach(io: file, filename: "out.jpg", content_type: "image/jpg")
+# d.save!
+# file = File.open("../app/assets/images/dice.jpg")
+# d =Category.new(title: "Shopping", kind: "task")
+# d.image.attach(io: file, filename: "dice.jpg", content_type: "image/jpg")
+# d.save!
 puts "Seeding Categories completed"
 
-Option.delete_all
+file = URI.open('https://res.cloudinary.com/dvmwdazf6/image/upload/v1582285768/DRuLwh75KbpX8GFJ8B5cDbYv.jpg')
+category = Category.new(kind: 'Task', title: "Cooking")
+category.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+category.save
+# Category.create!(title: "Cleaning", kind: "task", image: "https://picsum.photos/200/300")
+# Category.create!(title: "Admin", kind: "task", image: "https://picsum.photos/200/300")
+# Category.create!(title: "Fixing stuff", kind: "task", image: "https://picsum.photos/200/300")
+# Category.create!(title: "Going out", kind: "event", image: "https://picsum.photos/200/300")
+# Category.create!(title: "Shopping", kind: "event", image: "https://picsum.photos/200/300")
+puts "Seeding Categories completed"
+
+
 puts "options ready to be seed!"
 sleep(1)
 puts "Go!"
-Option.create!(category_id: 5, name: "Cinema", duration: 3, selected: true)
-Option.create!(category_id: 5, name: "Museum", duration: 1.5, selected: false)
-Option.create!(category_id: 5, name: "Restaurant", duration: 2, selected: false)
+Option.create!(category_id: Category.first.id, name: "Cinema", duration: 3, selected: true)
+Option.create!(category_id: Category.first.id, name: "Museum", duration: 1, selected: false)
+Option.create!(category_id: Category.first.id, name: "Restaurant", duration: 2, selected: false)
 puts "Seeding Options completed"
 
 
 
 
-Task.delete_all
+
 puts "tasks ready to be seed!"
 sleep(1)
 puts "Go!"
-Task.create!(user_id: 1, category_id: 2, name: "nettoyer wc", progress: "pending", start_date: Time.now)
-Task.create!(user_id: 2, category_id: 1, name: "rent pick up", progress: "done", start_date: Time.now)
-Task.create!(user_id: 3, category_id: 2, name: "clean window saloon", progress: "pending", start_date: Time.now)
-Task.create!(user_id: 4, category_id: 4, name: "call the owner", progress: "done", start_date: Time.now)
-Task.create!(user_id: 4, category_id: 5, name: "Who's not drinking? Sam?", progress: "done", start_date: Time.now)
-Task.create!(user_id: 4, category_id: 6, name: "Who's buying the beers?", progress: "done", start_date: Time.now)
+Task.create!(user_id: User.first.id, category_id: Category.first.id, name: "nettoyer wc", progress: "pending", start_date: Time.now)
+Task.create!(user_id: User.first.id, category_id: Category.first.id, name: "rent pick up", progress: "done", start_date: Time.now)
+Task.create!(user_id: User.first.id, category_id: Category.first.id, name: "clean window saloon", progress: "pending", start_date: Time.now)
+Task.create!(user_id: User.first.id, category_id: Category.first.id, name: "call the owner", progress: "done", start_date: Time.now)
+Task.create!(user_id: User.first.id, category_id: Category.first.id, name: "Who's not drinking? Sam?", progress: "done", start_date: Time.now)
+Task.create!(user_id: User.first.id, category_id: Category.first.id, name: "Who's buying the beers?", progress: "done", start_date: Time.now)
 puts "Seeding Tasks completed"
 
-Groupcategory.delete_all
+
 puts "groupcategories ready to be seed!"
 sleep(1)
 puts "Go!"
-Groupcategory.create!(group_id: 1,category_id: 5)
-Groupcategory.create!(group_id: 2,category_id: 2)
+Groupcategory.create!(group_id: Group.first.id,category_id: Category.first.id)
+# Groupcategory.create!(group_id: Group.first.id,category_id: Category.first.id)
 puts "Seeding Groupcategorys completed"
 
 puts "All is done!!!"

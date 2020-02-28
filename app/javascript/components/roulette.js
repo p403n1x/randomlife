@@ -1,94 +1,99 @@
 let initRoulette = () => {
 
 var carousel = document.querySelector('.carousel');
-var cells = carousel.querySelectorAll('.carousel__cell');
-  let selectedIndex = 0;
-  var cellWidth = carousel.offsetWidth;
-  var cellHeight = carousel.offsetHeight;
-  var isHorizontal = true;
-  var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
-  var radius, theta;
-  let cellCount = carousel.dataset.ucount;
-  let winR = document.getElementById('winner');
-  let launch = document.getElementById('launch');
+
+if (carousel) {
+  var cells = carousel.querySelectorAll('.carousel__cell');
+    let selectedIndex = 0;
+    var cellWidth = carousel.offsetWidth;
+    var cellHeight = carousel.offsetHeight;
+    var isHorizontal = true;
+    var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
+    var radius, theta;
+    let cellCount = carousel.dataset.ucount;
+    let winR = document.getElementById('winner');
+    let launch = document.getElementById('launch');
 
 
-  function winnerFunction() {
-  if(getComputedStyle(winR).display != "none"){
-    winR.style.display = "none";
-  } else {
-    winR.style.display = "block";
+    function winnerFunction() {
+    if(getComputedStyle(winR).display != "none"){
+      winR.style.display = "none";
+    } else {
+      winR.style.display = "block";
+    }
   }
-}
 
-function hideLaunchFunction() {
-  if(getComputedStyle(launch).display != "none"){
-    launch.style.display = "none";
-  } else {
-    launch.style.display = "initial";
+  function hideLaunchFunction() {
+    if(getComputedStyle(launch).display != "none"){
+      launch.style.display = "none";
+    } else {
+      launch.style.display = "initial";
+    }
   }
-}
 
-    function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
-
-    function rotateCarousel() {
-    var angle = (theta * selectedIndex * -1) + (2 * cellCount) * (theta * selectedIndex * -1);
-    carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
-    rotateFn + '(' + angle + 'deg)';
+      function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
   };
 
- const jokerButton = document.querySelector('.joker-button');
-  jokerButton.addEventListener( 'click', function() {
-    hideLaunchFunction();
-    changeCarousel();
-    selectedIndex = carousel.dataset.choice;
-    rotateCarousel();
-    sleep(5000).then(() => {
-    winnerFunction();
-  });
-  });
-
-  function changeCarousel() {
-    theta = 360 / cellCount;
-    var cellSize = isHorizontal ? cellWidth : cellHeight;
-    radius = Math.round( ( cellSize / 2) / Math.tan( Math.PI / cellCount ) );
-    for ( var i=0; i < cells.length; i++ ) {
-      var cell = cells[i];
-      if ( i < cellCount ) {
-        // visible cell
-        cell.style.opacity = 1;
-        var cellAngle = theta * i;
-        cell.style.transform = rotateFn + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
-      } else {
-        // hidden cell
-        cell.style.opacity = 0;
-        cell.style.transform = 'none';
-      };
+      function rotateCarousel() {
+      var angle = (theta * selectedIndex * -1) + (2 * cellCount) * (theta * selectedIndex * -1);
+      carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
+      rotateFn + '(' + angle + 'deg)';
     };
 
-    rotateCarousel();
-  };
+   const jokerButton = document.querySelector('.joker-button');
+    jokerButton.addEventListener( 'click', function() {
+      hideLaunchFunction();
+      changeCarousel();
+      selectedIndex = carousel.dataset.choice;
+      rotateCarousel();
+      sleep(5000).then(() => {
+      winnerFunction();
+    });
+    });
 
-  var orientationRadios = document.querySelectorAll('input[name="orientation"]');
-  ( function() {
-    for ( var i=0; i < orientationRadios.length; i++ ) {
-      var radio = orientationRadios[i];
-      radio.addEventListener( 'change', onOrientationChange );
+    function changeCarousel() {
+      theta = 360 / cellCount;
+      var cellSize = isHorizontal ? cellWidth : cellHeight;
+      radius = Math.round( ( cellSize / 2) / Math.tan( Math.PI / cellCount ) );
+      for ( var i=0; i < cells.length; i++ ) {
+        var cell = cells[i];
+        if ( i < cellCount ) {
+          // visible cell
+          cell.style.opacity = 1;
+          var cellAngle = theta * i;
+          cell.style.transform = rotateFn + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+        } else {
+          // hidden cell
+          cell.style.opacity = 0;
+          cell.style.transform = 'none';
+        };
+      };
+
+      rotateCarousel();
+    };
+
+    var orientationRadios = document.querySelectorAll('input[name="orientation"]');
+    ( function() {
+      for ( var i=0; i < orientationRadios.length; i++ ) {
+        var radio = orientationRadios[i];
+        radio.addEventListener( 'change', onOrientationChange );
+      }
+    })();
+
+    function onOrientationChange() {
+      var checkedRadio = document.querySelector('input[name="orientation"]:checked');
+      isHorizontal = checkedRadio.value == 'horizontal';
+      rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
+      changeCarousel();
     }
-  })();
 
-  function onOrientationChange() {
-    var checkedRadio = document.querySelector('input[name="orientation"]:checked');
-    isHorizontal = checkedRadio.value == 'horizontal';
-    rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
-    changeCarousel();
+    // set initials
+    onOrientationChange();
+
   }
-
-  // set initials
-  onOrientationChange();
-
 }
+
+
 
 export { initRoulette };

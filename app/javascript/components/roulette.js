@@ -10,35 +10,25 @@ var cells = carousel.querySelectorAll('.carousel__cell');
   var radius, theta;
   let cellCount = carousel.dataset.ucount;
 
-  const times = x => f => {
-  if (x > 0) {
-    f()
-    times (x - 1) (f)
-    };
-  };
-
     function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-  function rotateCarousel() {
-    var angle = theta * selectedIndex * -1;
+    function rotateCarousel() {
+    var angle = (theta * selectedIndex * -1) + (3 * cellCount) *(theta * selectedIndex * -1);
     carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
     rotateFn + '(' + angle + 'deg)';
   };
 
-  const jokerButton = document.querySelector('.joker-button');
-  jokerButton.preventDefault
+ const jokerButton = document.querySelector('.joker-button');
   jokerButton.addEventListener( 'click', function() {
-    times (30) (() => {
-      selectedIndex++;
-      rotateCarousel();
-    });
-  sleep(10000).then(() => {
+    selectedIndex = carousel.dataset.choice + 5 ;
+    rotateCarousel();
+  sleep(1000).then(() => {
     selectedIndex = carousel.dataset.choice;
     rotateCarousel();
   });
-});
+  });
 
   function changeCarousel() {
     theta = 360 / cellCount;

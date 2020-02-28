@@ -5,21 +5,30 @@
         <div class="card height-100vh" style="width: 27em; align-content: space-around;">
           <%= image_tag @user.image, class:"avatar-large-bordered displayed mt-4" %>
           <div class="card-body text-center">
-            <h5 class="d-inline card-title"><%= @user.first_name %> </h5>
-            <h5 class="d-inline card-title"><%= @user.last_name %></h5>
-            <br>
-            <p class="card-text"><%= @user.nickname%></p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"> <%= @user.group.name %> </li>
-            <li class="list-group-item"> <%= @user.email %> </li>
-            <li class="list-group-item"> <%= @user.phone_number %> </li>
-          </ul>
-          <div class="card-body">
-            <%= link_to 'Edit', edit_user_path, class:'btn-ghost' %>
-          </div>
-        </div>
+            <div class="card p-3 ">
+              <h5 class="d-inline card-title"><%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %> </h5>
+              <p class="card-title"><%= @user.nickname%></p>
 
+            </div>
+            <br>
+          <div class="card-body">
+          </div>
+
+            <div class="card mb-2">
+              <p class="card-body m-2"> <%= @user.group.name %> </p>
+            </div>
+
+            <div class="card mb-2">
+              <p class="card-body"> <%= @user.email %> </p>
+            </div>
+
+            <div class="card mb-2">
+              <p class="card-body"> <%= @user.phone_number %> </p>
+            </div>
+
+            <div class="card-body">
+              <%= link_to 'Edit', edit_user_path, class:'btn-ghost' %>
+            </div>
     </div>
 
 </div>

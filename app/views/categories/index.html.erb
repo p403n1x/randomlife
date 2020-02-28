@@ -1,12 +1,7 @@
-<div class="container mt-3S">
-  <div class="row">
+<div class="container mt-3">
+  <div class="row ">
     <div class="col-md-6">
-      <div class="add-category">
-        <p class='d-inline justify-content-between ml-2'>Add a category </p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Add Category
-        </button>
-
+      <button type="button" class="btn-ghost" data-toggle="modal" data-target="#exampleModal">Add category</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -37,13 +32,13 @@
 
         <% @categories.each do |category| %>
         <% category.kind == "task" %>
-          <div class="card mb-3">
+          <div class="card my-3">
             <% if category.image %>
             <%= image_tag category.image, style: "object-fit: cover", height: 100 %>
             <% end %>
             <div class="card-body">
               <h4 class="card-title"><%= category.title %></h4>
-              <p class='d-inline justify-content-between ml-2'>Add a task </p>
+              <p class='d-inline justify-content-between mr-1'>Add a task </p>
               <%= link_to "+", new_category_task_path(category), class:'btn-action' %>
             </div>
           </div>
@@ -52,6 +47,5 @@
     </div>
   </div>
 </div>
-
 
 

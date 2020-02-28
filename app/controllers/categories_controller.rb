@@ -21,7 +21,6 @@ class CategoriesController < ApplicationController
 
       redirect_to categories_path
     else
-      raise
       render :index
     end
   end

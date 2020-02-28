@@ -1,18 +1,26 @@
 <div class="container">
+  <h1 class="my-3"> My tasks</h1>
   <div class="row">
     <div class="container formnew">
       <% @tasks.each do |task| %>
-        <%= task.name  %>
-        <% if task.progress == "pending" %>
-          <%= simple_form_for task, url: user_assigned_task_path(current_user, task), method: :patch do |f| %>
-            <%= f.input :progress, input_html:{value: "done"}, as: :hidden %>
-            <%= f.submit "done" %>
+      <div class="card w-75 my-3 mx-auto">
+        <div class="card-body">
+          <% if task.progress == "pending" %>
+            <h5 class="card-title"><%= task.name.capitalize %></h5>
+            <p class="card-text"><%= task.start_date %></p>
+              <%= simple_form_for task, url: user_assigned_task_path(current_user, task), method: :patch do |f| %>
+                <%= f.input :progress, input_html:{value: "done"}, as: :hidden %>
+                <%= f.submit "Done !", class: "btn btn-ghost" %>
+              <% end %>
+          <% else %>
+            <h5 class="card-title"><i class="far fa-check-circle mr-2" style="color: grey"></i><s style="color: grey"><%= task.name.capitalize %></s></h5>
           <% end %>
-        <% else %>
-            <p> Check</p>
-        <% end %>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
+
+
 

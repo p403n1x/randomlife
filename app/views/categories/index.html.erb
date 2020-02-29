@@ -29,7 +29,7 @@
 
         <% @categories.each do |category| %>
         <% category.kind = "task" %>
-          <div class="card mb-3">
+          <div class="card mb-3" style="border-radius: 5px;">
             <% if category.photo.attached? %>
             <%= image_tag category.photo, style: 'object-fit: cover', height: 100 %>
             <% end %>

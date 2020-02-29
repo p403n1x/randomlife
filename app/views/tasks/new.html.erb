@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="my-3" style="color: white;"><strong><%= @category.title %></strong> </h1>
   <div class="row">
-    <div class="container formnew my-4">
+    <div class="container formnew my-4" style="color: #4A4A4A">
       <%= simple_form_for [@category, @task] do |f| %>
         <%= f.input :name, label: "Who is doing...? (put your task)" %>
         <%= f.input :start_date, as: :string, input_html:{id: 'calendar'} %>

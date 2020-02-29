@@ -34,8 +34,8 @@
             <%= image_tag category.photo, style: 'object-fit: cover', height: 100 %>
             <% end %>
             <div class="card-body">
-              <h4 class="card-title"><%= category.title %></h4>
-              <p class='d-inline justify-content-between mr-1'>Add a task </p>
+              <h4 class="card-title" style="color: #3B5F0D"> <strong> <%= category.title %> </strong> </h4>
+              <p class='d-inline justify-content-between mr-1' style="color: #4A4A4A">Add a task </p>
               <%= link_to "+", new_category_task_path(category), class:'btn-action' %>
             </div>
           </div>

@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :tasks, only: [:show, :new, :create, :edit, :update], shallow: true
     resources :options, only: [:index, :create, :update, :show, :destroy], shallow: true
   end
-  resources :option_categories, only: [:index], shallow: true
+  resources :option_categories, only: [:index, :new, :create, :destroy], shallow: true
 end

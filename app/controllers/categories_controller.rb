@@ -11,10 +11,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.kind = "Task"
     #@category.image.attach(io: URI.open(params[:category][:photo]), filename: "photo.jpg", content_type: "image/jpg")
     @group = current_user.group
-
 
     if @category.save
       Groupcategory.create(group: @group, category: @category)

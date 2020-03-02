@@ -46,8 +46,8 @@
               <% end %>
               <div class="card-body">
                 <h4 class="card-title"><%= category.title %></h4>
-                <p class='d-inline justify-content-between mr-1'>Add a task </p>
-                <%= link_to "+", new_category_task_path(category), class:'btn-action' %>
+                <p class='d-inline justify-content-between mr-1'>Add an option </p>
+                <%= link_to "+", category_options_path(category), class:'btn-action' %>
                 <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -158px; left: 115px; background-color: white' %>
               </div>
             </div>

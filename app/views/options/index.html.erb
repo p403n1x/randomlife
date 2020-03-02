@@ -1,19 +1,54 @@
 <div class="container">
+  <h1 class="my-3" style="color: white;"><strong><%= @category.title %></strong> </h1>
 
   <div class="row">
     <div class="col-12">
+      <ul class="list-group list-group-flush m-2">
       <% @options.each do |option| %>
-        <p><%= option.name %></p>
-        <p><%= option.duration.round %> H</p>
+        <% if option.category == @category  %>
+          <li class="list-group-item m-2"><p><%= option.name.capitalize %></p>
+            <%= link_to "x", option_path(option), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'background-color: white' %>
+          </li>
+        <% end %>
       <% end %>
+      </ul>
     </div>
   </div>
   <br>
-  <%= link_to '+', root_path, class: 'btn-action'  %>
-  <%= link_to 'coucou', root_path, class: 'btn-ghost'  %>
 
-  <br>
-
+  <div class="row ">
+    <div class="col-md-6">
+      <button type="button" class="btn-ghost mb-3" data-toggle="modal" data-target="#exampleModal">Add an option</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" style="color: #3B5F0D" id="exampleModalLabel">Add an option</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container formnew">
+                <%= simple_form_for @option, url: category_options_path, method: :post do |f| %>
+                <%= f.input :name %>
+                <br>
+                <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <%= link_to "OK!", option_path(@category, @option), class:'btn btn-ghost', style:'background-color: white'%>
+  </div>
 
 </div>
+
+
+
+
+
+
+
 

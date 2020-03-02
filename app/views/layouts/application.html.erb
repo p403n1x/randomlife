@@ -13,13 +13,18 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% if params[:controller] == 'pages' && params[:action] == 'home' %>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/navbar2' %>
+    <% end %>
 
       <p class="alert"><%= alert %></p>
 
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+
     <%= render 'shared/background_anim' %>
 
 

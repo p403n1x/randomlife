@@ -14,4 +14,25 @@
 #titre-nav {
   color: #E46A2D;
   font-family: 'muli';
+  font: bold;
+}
+
+
+.navbar-transparent {
+  justify-content: space-between;
+  background: transparent;
+  border-bottom: solid 1px white;
+}
+.navbar-transparent .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-transparent .navbar-brand img {
+  width: 40px;
+}
+
+#titre2-nav {
+  color: white;
+  font-family: 'muli';
+  font: bold;
 }

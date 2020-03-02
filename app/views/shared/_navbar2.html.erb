@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-nova">
+<div class="navbar navbar-expand-sm navbar-light navbar-transparent">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "dice.png" %>
-    <strong><span id='titre-nav'> Random Life</span></strong>
+    <strong><span id='titre2-nav'> Random Life</span></strong>
   <% end %>
   <div>
     <% if user_signed_in? %>
@@ -12,19 +12,12 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
           <%= link_to "My Tasks",   user_assigned_tasks_path(current_user), class: "dropdown-item" %>
-          <%= link_to "Group Activities", actions_path, class: "dropdown-item" %>
           <%= link_to "Dashboard", categories_path, class: "dropdown-item" %>
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </div>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
       <% end %>
 
 
   </div>
 </div>
-
-

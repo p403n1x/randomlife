@@ -8,7 +8,8 @@
 
           <% if task.progress == "pending" %>
 
-            <h5 class="card-title" style="color: #3B5F0D"> <strong> <%= task.category.title.capitalize %> </strong></h5>
+            <h5 class="card-title" style="color: #E46A2D"> <strong> <%= task.category.title.capitalize %> </strong></h5>
+        
             <p class="card-text"><%= task.name %></p>
 
             <p class="card-text"><%= task.start_date %></p>
@@ -18,7 +19,7 @@
               <% end %>
           <% else %>
             <h5 class="card-title"><i class="far fa-check-circle mr-2" style="color: grey"></i><s style="color: grey"><%= task.name.capitalize %></s></h5>
-            <%= link_to "x", user_assigned_task_path(current_user, task), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action' %>
+            <%= link_to "x", user_assigned_task_path(current_user, task), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action'%>
           <% end %>
         </div>
       </div>

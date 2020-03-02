@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="my-3" style="color: white;"><strong>Create new group</strong> </h1>
+  <div class="row">
+    <div class="container formnew my-4" style="color: #4A4A4A">
+      <%= simple_form_for @group do |f| %>
+        <%= f.input :name, label: "Give your group a name" %>
+        <%= f.input :address %>
+        <%= f.input :description, label: "Group slogan goes here (optional)" %>
+        <br>
+        <%= f.button :submit, 'OK', class:'btn btn-ghost', style:'background-color: white' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,13 @@ class AssignedTasksController < ApplicationController
     redirect_to user_assigned_tasks_path
   end
 
+  def destroy
+    @assigned_task = Task.find(params[:id])
+    @assigned_task.destroy
+    redirect_to user_assigned_tasks_path
+  end
+
+
   private
 
   def task_params

@@ -1,32 +1,32 @@
+<div class="container mt-3">
 
-<div class="container mt-3 dflex" style="align-content: center;">
 <ul class="nav nav-pills mb-2">
   <li class="nav-item">
-    <%= link_to "Who?", categories_path, class:'nav-link active' %>
+    <%= link_to "Who?", categories_path, class:'nav-link' %>
   <li class="nav-item">
-    <%= link_to "What?", option_categories_path, class:'nav-link' %>
+    <%= link_to "What?", option_categories_path, class:'nav-link active' %>
   </li>
 </ul>
 
+
   <div class="row ">
     <div class="col-md-6">
-      <button type="button" class="btn-ghost mb-3" data-toggle="modal" data-target="#exampleModal">Add category</button>
+      <button type="button" class="btn-ghost mb-3" style="background-color: white" data-toggle="modal" data-target="#exampleModal">Add category</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" style="color: #3B5F0D" id="exampleModalLabel">Add a category</h5>
-
+                <h5 class="modal-title" id="exampleModalLabel">Add a category</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div class="container formnew">
-                <%= simple_form_for @category do |f| %>
+                <%= simple_form_for @category, url: option_categories_path, method: :post do |f| %>
                 <%= f.input :title %>
                 <%= f.input :photo, as: :file %>
-                <%= f.input :kind, input_html:{value: "Task"}, as: :hidden %>
+                <%= f.input :kind, input_html:{value: "Event"}, as: :hidden %>
                 <br>
                 <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>
                 <% end %>
@@ -39,14 +39,14 @@
 
 
         <% @categories.each do |category| %>
-          <% if category.kind == "Task" %>
-            <div class="card mb-3" style="border-radius: 5px;">
+          <% if category.kind == "Event"  %>
+            <div class="card mb-3">
               <% if category.photo.attached? %>
               <%= image_tag category.photo, style: 'object-fit: cover', height: 100 %>
               <% end %>
               <div class="card-body">
-                <h4 class="card-title" style="color: #3B5F0D"> <strong> <%= category.title %> </strong> </h4>
-                <p class='d-inline justify-content-between mr-1' style="color: #4A4A4A">Add a task </p>
+                <h4 class="card-title"><%= category.title %></h4>
+                <p class='d-inline justify-content-between mr-1'>Add a task </p>
                 <%= link_to "+", new_category_task_path(category), class:'btn-action' %>
                 <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -158px; left: 115px; background-color: white' %>
               </div>
@@ -57,4 +57,7 @@
     </div>
   </div>
 </div>
+
+
+
 

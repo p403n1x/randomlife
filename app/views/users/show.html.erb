@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container">
 
     <div class="row">
 
@@ -6,29 +6,27 @@
           <%= image_tag @user.image, class:"avatar-large-bordered displayed mt-4" %>
           <div class="card-body text-center">
             <div class="card-profile p-3 ">
-              <h5 class="d-inline card-title"><%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %> </h5>
-              <p class="card-title"><%= @user.nickname%></p>
-
+              <h5 class="d-inline card-title" style="color: #3B5F0D;"> <strong> <%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %></strong> </h5>
+              <p class="card-title"> <%= @user.nickname%> </p>
             </div>
             <br>
-          <div class="card-body">
-          </div>
 
             <div class="card-profile mb-2">
-              <p class="card-body m-2"> <%= @user.group.name %> </p>
+              <p class="card-body m-2">🏠  <br> <%= @user.group.name %> </p>
             </div>
 
             <div class="card-profile mb-2">
-              <p class="card-body"> <%= @user.email %> </p>
+              <p class="card-body">📧 <br>  <%= @user.email %> </p>
             </div>
 
             <div class="card-profile mb-2">
-              <p class="card-body"> <%= @user.phone_number %> </p>
+              <p class="card-body">📞 <br>   <%= @user.phone_number %> </p>
             </div>
 
-            <div class="card-body">
-              <%= link_to 'Edit', edit_user_path, class:'btn-ghost' %>
-            </div>
+            <br>
+
+              <%= link_to 'Edit', edit_user_path, class:'btn-ghost', style:'background-color: white;' %>
+        </div>
     </div>
 
 </div>

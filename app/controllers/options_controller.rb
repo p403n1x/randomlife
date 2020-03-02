@@ -1,11 +1,12 @@
 class OptionsController < ApplicationController
-before_action :authenticate_user!
+#before_action :authenticate_user!
 
 before_action :set_category, only: [:index, :create]
 before_action :set_option, only: [:show, :update, :destroy]
 
   def index
     @options = Option.all
+    @options = @category.options
     @option = Option.new
   end
 
@@ -16,9 +17,9 @@ before_action :set_option, only: [:show, :update, :destroy]
     @option = Option.new(option_params)
     @option.category = @category
     if @option.save
-      redirect_to option_path(@option)
+      redirect_to category_options_path(@category)
     else
-      render :show
+      render :index
     end
   end
 
@@ -31,7 +32,9 @@ before_action :set_option, only: [:show, :update, :destroy]
   end
 
   def destroy
+    category = @option.category
     @option.destroy
+    redirect_to category_options_path(category)
   end
 
   private
@@ -45,6 +48,6 @@ before_action :set_option, only: [:show, :update, :destroy]
   end
 
   def option_params
-    params.require(:option).permit(:name, :duration)
+    params.require(:option).permit(:name)
   end
 end

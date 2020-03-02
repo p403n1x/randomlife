@@ -2,31 +2,57 @@
 
     <div class="row">
 
-        <div class="height-100vh" style="width: 27em; align-content: space-around;">
-          <%= image_tag @user.image, class:"avatar-large-bordered displayed mt-4" %>
-          <div class="card-body text-center">
-            <div class="card-profile p-3 ">
-              <h5 class="d-inline card-title" style="color: #73bf8b;"> <strong> <%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %></strong> </h5>
-              <p class="card-title"> <%= @user.nickname%> </p>
-            </div>
-            <br>
 
-            <div class="card-profile mb-2">
-              <p class="card-body m-2">🏠  <br> <%= @user.group.name %> </p>
-            </div>
+      <div class="height-100vh" style="width: 27em; align-content: space-around;">
+        <%= image_tag @user.image, class:"avatar-large-bordered displayed mt-4" %>
+        <div class="card-body text-center">
+          <div class="card-profile p-3 ">
+            <h5 class="d-inline card-title" style="color:#E46A2D;"> <strong> <%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %></strong> </h5>
+            <p class="card-title"> <%= @user.nickname%> </p>
+          </div>
+          <br>
 
-            <div class="card-profile mb-2">
-              <p class="card-body">📧 <br>  <%= @user.email %> </p>
-            </div>
+          <div class="card-profile mb-2">
+            <p class="card-body m-2">🏠  <br> <%= @user.group.name %> </p>
+          </div>
 
-            <div class="card-profile mb-2">
-              <p class="card-body">📞 <br>   <%= @user.phone_number %> </p>
-            </div>
+          <div class="card-profile mb-2">
+            <p class="card-body">📧 <br>  <%= @user.email %> </p>
+          </div>
 
-            <br>
-
-              <%= link_to 'Edit', edit_user_path, class:'btn-ghost', style:'background-color: white;' %>
+          <div class="card-profile mb-2">
+            <p class="card-body">📞 <br>   <%= @user.phone_number %> </p>
+          </div>
         </div>
-    </div>
+
+        <button type="button" class="btn-ghost mb-3" data-toggle="modal" data-target="#exampleModal">Edit</button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" style="color: #E46A2D" id="exampleModalLabel">Edit</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container formnew">
+                  <%= simple_form_for @user do |f| %>
+                    <%=  f.input :first_name, value: :first_name%>
+                    <%=  f.input :last_name, value: :last_name%>
+                    <%=  f.input :nickname, value: :nickname%>
+                    <%=  f.input :email, value: :email%>
+                    <%=  f.input :phone_number, value: :phone_number%>
+                    <%=  f.input :image, value: :image%>
+                    <%= f.submit 'OK', class:' d-block mb-3 btn-ghost' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 </div>
+
+

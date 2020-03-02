@@ -4,7 +4,7 @@ var carousel = document.querySelector('.carousel');
 
 if (carousel) {
   var cells = carousel.querySelectorAll('.carousel__cell');
-    let selectedIndex = 0;
+    let selectedIndex = carousel.dataset.choice + Math.floor(Math.random() * 10);
     var cellWidth = carousel.offsetWidth;
     var cellHeight = carousel.offsetHeight;
     var isHorizontal = true;
@@ -13,6 +13,7 @@ if (carousel) {
     let cellCount = carousel.dataset.ucount;
     let winR = document.getElementById('winner');
     let launch = document.getElementById('launch');
+    const audio = new Audio('/wheelsound.mp3');
 
 
     function winnerFunction() {
@@ -31,19 +32,28 @@ if (carousel) {
     }
   }
 
+
+    function stopinfiniteRotate() {
+      carousel.classList.remove('infinitrot', 'aucunsens');
+    }
+
+
       function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
   };
 
       function rotateCarousel() {
-      var angle = (theta * selectedIndex * -1) + (2 * cellCount) * (theta * selectedIndex * -1);
+      var angle = (theta * selectedIndex * -1);
       carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
       rotateFn + '(' + angle + 'deg)';
+      audio.play();
     };
 
    const jokerButton = document.querySelector('.joker-button');
     jokerButton.addEventListener( 'click', function() {
       hideLaunchFunction();
+      stopinfiniteRotate();
+      sleep(100).then(() => {
       changeCarousel();
       selectedIndex = carousel.dataset.choice;
       rotateCarousel();
@@ -51,6 +61,7 @@ if (carousel) {
       winnerFunction();
     });
     });
+      });
 
     function changeCarousel() {
       theta = 360 / cellCount;
@@ -63,10 +74,10 @@ if (carousel) {
           cell.style.opacity = 1;
           var cellAngle = theta * i;
           cell.style.transform = rotateFn + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
-        } else {
-          // hidden cell
-          cell.style.opacity = 0;
-          cell.style.transform = 'none';
+        // } else {
+        //   // hidden cell
+        //   cell.style.opacity = 0;
+        //   cell.style.transform = 'none';
         };
       };
 

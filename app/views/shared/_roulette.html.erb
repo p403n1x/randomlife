@@ -11,13 +11,13 @@
   </p>
 
 <div class="scene">
-  <div class="carousel" data-usrs="<%= @users %>" data-ucount="<%= @cellscount %>" data-choice="<%= @choiceindex %>">
+  <div class="carousel infinitrot" data-usrs="<%= @users %>" data-ucount="<%= @cellscount %>" data-choice="<%= @choiceindex %>">
     <% @users.each do |user| %>
       <div class="carousel__cell">
         <div class="d-flex flex-column">
           <div class="img-avt <%= user.id %>"><%= image_tag "#{user.image}", size: "70x70", class: "rounded-circle" %></div>
           <div class="nkn-avt"><%= user.nickname %></div>
-
+          <div class="nkn-tsk"><%= user.tasks.nil? ? '': (user.tasks.last.nil? || user.tasks.last.id == @task.id ? '' : "last : #{user.tasks.last.name}") %></div>
         </div>
         </div>
     <% end %>
@@ -31,3 +31,6 @@
   </div>
 
 </div>
+
+
+

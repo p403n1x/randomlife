@@ -24,6 +24,19 @@ body {
   transition: transform 5s;
 }
 
+.infinitrot {
+  animation: rotation 20s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(359deg);
+  }
+}
+
 .carousel__cell {
   position: absolute;
   width: 190px;
@@ -45,8 +58,15 @@ margin-top: -15px;
 }
 
 .nkn-avt {
-text-align: center;
-margin-top: -60px;
+  font-size: 12px;
+  text-align: center;
+  margin-top: -70px;
+}
+
+.nkn-tsk {
+  font-size: 10px;
+  text-align: center;
+  margin-top: -100px;
 }
 
 .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 95%, 1); }

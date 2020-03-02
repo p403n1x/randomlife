@@ -6,6 +6,9 @@
 
   width: 100%;
   height: 400px;
+  margin-top: -395px;
+  overflow: hidden;
+
 }
 
 .bg-bubbles {
@@ -13,7 +16,7 @@
   left: 0;
   width: 100%;
   height: calc(100vh - 166px);
-  z-index: 1;
+  z-index: -1;
 }
 .bg-bubbles li {
   list-style: none;

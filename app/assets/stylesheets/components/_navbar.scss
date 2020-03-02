@@ -14,5 +14,11 @@
 #titre-nav {
   color: #E46A2D;
   font-family: 'muli';
+  font: bold;
 }
 
+.navbar-transparent {
+  justify-content: space-between;
+  background: transparent;
+  border-bottom: solid 1px white;
+}

@@ -1,8 +1,8 @@
-<div class="container">
-  <h1 class="my-3">Log in</h1>
+<div class="container my-3">
+  <h2 style="color: white;"><strong> Log in </strong></h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
+    <div class="form-inputs" style="color: white;">
       <%= f.input :email,
                   required: false,
                   autofocus: true,
@@ -13,10 +13,11 @@
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+    <div class="form-actions" style="color: white;">
+      <%= f.button :submit, "Log in", class:'btn-ghost' %>
     </div>
   <% end %>
-
+  <br>
+  
   <%= render "devise/shared/links" %>
 </div>

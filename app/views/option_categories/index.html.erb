@@ -1,9 +1,9 @@
-<div class="container mt-3">
+<div class="container mt-3 dflex" style="align-content: center;">
 
-<ul class="nav nav-pills mb-2">
-  <li class="nav-item">
+<ul class="list-inline tabs-underlined mb-3">
+  <li>
     <%= link_to "Who?", categories_path, class:'nav-link' %>
-  <li class="nav-item">
+  <li class="tab-underlined active">
     <%= link_to "What?", option_categories_path, class:'nav-link active' %>
   </li>
 </ul>
@@ -11,12 +11,12 @@
 
   <div class="row ">
     <div class="col-md-6">
-      <button type="button" class="btn-ghost mb-3" style="background-color: white" data-toggle="modal" data-target="#exampleModal">Add category</button>
+      <button type="button" class="btn-ghost mb-3" style="border: transparent;" data-toggle="modal" data-target="#exampleModal">Add category</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add a category</h5>
+                <h5 class="modal-title" style="color: #E46A2D;" id="exampleModalLabel"> Add a category </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -40,13 +40,13 @@
 
         <% @categories.each do |category| %>
           <% if category.kind == "Event"  %>
-            <div class="card mb-3">
+            <div class="card mb-3" style="border-radius: 5px;">
               <% if category.photo.attached? %>
               <%= image_tag category.photo, style: 'object-fit: cover', height: 100 %>
               <% end %>
               <div class="card-body">
-                <h4 class="card-title"><%= category.title %></h4>
-                <p class='d-inline justify-content-between mr-1'>Add an option </p>
+                <h4 class="card-title" style="color: #E46A2D"> <strong> <%= category.title %> </strong> </h4>
+                <p class='d-inline justify-content-between mr-1' style="color: #4A4A4A"> Add an option </p>
                 <%= link_to "+", category_options_path(category), class:'btn-action' %>
                 <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -158px; left: 115px; background-color: white' %>
               </div>

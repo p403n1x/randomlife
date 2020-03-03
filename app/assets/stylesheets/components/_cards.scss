@@ -2,7 +2,11 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;
+}
 
+#img-card {
+  height: 100px;
+  object-fit: cover;
 }
 
 .btn-name {

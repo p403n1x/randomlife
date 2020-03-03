@@ -30,5 +30,11 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment:fixed;
+}
 
+.modal-backdrop {
+  z-index: 0 !important;
+}
+.modal {
+  top: 105px !important;
 }

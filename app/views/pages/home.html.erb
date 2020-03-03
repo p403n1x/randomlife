@@ -1,6 +1,6 @@
-<div class="banner banner-home">
+<div class="banner banner-home my-4">
   <div class="container">
-    <h1 id="banner-typed-text" class="mb-5"></h1>
+    <h1 id="banner-typed-text"></h1>
     <br>
     <br>
     <% if user_signed_in? %>
@@ -19,15 +19,6 @@
       </div> -->
     <% else %>
       <strong><%= link_to 'Sign up', new_user_registration_path, class:'btn-home' %></strong>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-
-      <%= render 'shared/dice' %>
     <% end %>
   </div>
 </div>

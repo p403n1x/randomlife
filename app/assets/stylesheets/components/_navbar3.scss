@@ -25,10 +25,14 @@ main {
   position: relative;
   z-index: 1;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   /*Change to Auto if there is more content*/
   box-shadow: 0 0 50px #000;
   transition: transform .5s;
+  .intro {
+    position: sticky;
+    top: 30px;
+  }
 }
 
 .nav-open main {

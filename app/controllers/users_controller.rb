@@ -10,6 +10,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def create
+    @user = User.new(user_params)
+    @group = Group.find(params[:group_id])
+    @user.group = @group
+    @user.password = Devise.friendly_token
+    @user.save!
+  end
+
   def update
     @user = current_user
     @user.update(user_params)

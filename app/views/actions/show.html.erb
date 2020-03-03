@@ -1,1 +1,34 @@
+  <p>
+  <br>
+    <label>
+      <input type="radio" name="orientation" value="horizontal" checked />
+      horizontal
+    </label>
+    <label>
+      <input type="radio" name="orientation" value="vertical" />
+      vertical
+    </label>
+  </p>
+
+<div class="scene">
+  <div class="carousel infinitrot" data-usrs="<%= @options %>" data-ucount="<%= @cellscount %>" data-choice="<%= @choiceindex %>">
+    <% @options.each do |option| %>
+      <div class="carousel__cell">
+        <div class="d-flex flex-column">
+          <div class="nkn-avt"><%= option.name %></div>
+          <div class="nkn-tsk"><%= option.selected.nil? ? '' : option.selected %></div>
+        </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+<h2 id="winner" style="display: none; color: #4A4A4A;">Option selected : <strong style="color: #E46A2D;"><%= @action.option.name %></strong> !!</h2>
+<br>
+<div class="carousel-options">
+  <audio src='audio/wheelsound.mp3'></audio>
+  <div id="launch" style="display: initial;">
+    <button class="joker-button heartbeat btn btn-ghost" style="background-color: white; border: transparent;">GO !</button>
+  </div>
+
+</div>
 

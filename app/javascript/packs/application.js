@@ -6,5 +6,6 @@ initRoulette();
 import { loadDynamicBannerText } from '../components/home';
 loadDynamicBannerText();
 
+import '../components/navbar3';
 
 import "../plugins/flatpickr";

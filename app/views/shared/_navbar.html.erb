@@ -3,28 +3,26 @@
     <%= image_tag "dice.png" %>
     <strong><span id='titre-nav'> Random Life</span></strong>
   <% end %>
-  <div>
-    <% if user_signed_in? %>
-      <div class="dropdown dropleft">
-        <div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= image_tag "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png", class: "avatar dropdown-toggle" %>
-        </div>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <% if user_signed_in? %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="text-right">
+        <li class="navbar-nav mr-auto">
           <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-          <%= link_to "My Tasks",   user_assigned_tasks_path(current_user), class: "dropdown-item" %>
+          <%= link_to "My Tasks", user_assigned_tasks_path(current_user), class: "dropdown-item" %>
           <%= link_to "Group Activities", actions_path, class: "dropdown-item" %>
           <%= link_to "Dashboard", categories_path, class: "dropdown-item" %>
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
-      </div>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
-      <% end %>
-
-
-  </div>
+      </ul>
+    </div>
+  <% else %>
+      <ul class="navbar-nav" style="justify-content: space-between;">
+        <li class="nav-item active">
+        <%= link_to "Login", new_user_session_path, class: "btn btn-ghost", style:'color: #4A4A4A; border-color: #4A4A4A;' %>
+      </ul>
+  <% end %>
 </div>
-
 

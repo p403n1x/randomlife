@@ -18,7 +18,7 @@
 
   <div class="row ">
     <div class="col-md-6">
-      <button type="button" class="btn-ghost mb-3" data-toggle="modal" data-target="#exampleModal">Add an option</button>
+      <button type="button" class="btn-ghost mb-3" style= "border: transparent;" data-toggle="modal" data-target="#exampleModal">Add an option</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -40,7 +40,7 @@
           </div>
         </div>
     </div>
-    <%= link_to "OK!", option_path(@category, @option), class:'btn btn-ghost', style:'background-color: white'%>
+    <%= link_to "OK!", option_path(@category, @option), class:'btn btn-ghost'%>
   </div>
 
 </div>

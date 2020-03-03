@@ -11,7 +11,9 @@
             <p><%= task.name %> : <%= task.start_date %></p>
               <%= simple_form_for task, url: user_assigned_task_path(current_user, task), method: :patch, class:'d-inline' do |f| %>
                 <%= f.input :progress, input_html:{value: "done"}, as: :hidden %>
-                <%= f.submit "Done !", class: "btn btn-ghost" %>
+                <%= link_to user_assigned_task_path(current_user, task), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <%= f.submit "Done !", class: "btn btn-ghost" %>
+                <% end %>
               <% end %>
           <% else %>
             <h5 class="card-title"><i class="far fa-check-circle mr-2" style="color: grey"></i><s style="color: grey"><%= task.name.capitalize %></s></h5>

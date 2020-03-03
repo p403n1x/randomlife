@@ -25,4 +25,11 @@ class ActionsController < ApplicationController
     @choiceindex = @options.find_index { |w| w == @action.option }
     @cellscount = @options.count
   end
+
+  def destroy
+    @action = Action.find(params[:id])
+    @action.destroy
+    redirect_to actions_path
+  end
+
 end

@@ -1,14 +1,21 @@
 <div class="container">
 
   <h1 class="my-3" style="color: white;"><strong>My Group Activities</strong></h1>
-    <% @actions.each do |action| %>
-      <%= action.option.name %>
-    <% end %>
 
-   <div class="grid m-3", style="display: grid;grid-template-columns: repeat(3, 1fr);grid-template-rows: repeat(<%= (@cellscount / 3).round %>, 1fr);grid-column-gap: 8px;grid-row-gap: 10px; border: 1px solid grey; border-radius: 2px;">
-     <% @users.each do |user| %>
-     <div data-id="<%= user.id %>"><%= image_tag "#{user.image}", size: "70x70", class: "rounded-circle m-3" %></div>
-     <% end %>
+    <div class="grid m-3", style="display: grid;grid-template-columns: repeat(3, 1fr);grid-template-rows: repeat(<%= (@cellscount / 3).round %>, 1fr);grid-column-gap: 8px;grid-row-gap: 10px; border: 1px solid grey; border-radius: 2px;">
+      <% @users.each do |user| %>
+      <div data-id="<%= user.id %>"><%= image_tag "#{user.image}", size: "70x70", class: "rounded-circle m-3" %></div>
+      <% end %>
     </div>
+
+    <% @actions.each do |action| %>
+      <ul class="list-group list-group-flush m-2">
+        <li class="list-group-item m-2">
+          <h5 style="color: #E46A2D"> <strong> <%= action.option.category.title.capitalize %></strong></h5>
+          <%= action.option.name %>
+          <%= link_to "Done !", action_path(action), method: :delete, data: { confirm: "Are you sure you have #{action.option.category.title.downcase} #{action.option.name} with your amazing group?" }, class:'btn-ghost'%>
+        </li>
+      </ul>
+    <% end %>
 
 </div>

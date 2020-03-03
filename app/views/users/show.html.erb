@@ -45,7 +45,13 @@
                     <%=  f.input :nickname, value: :nickname%>
                     <%=  f.input :email, value: :email%>
                     <%=  f.input :phone_number, value: :phone_number%>
-                    <%= f.input :photo, as: :file %>
+                    <label class="btn-ghost mb-3">
+                      Add your picture!
+                      <span style="display:none;">
+                        <%= f.input :photo, as: :file %>
+                      </span>
+                    </label>
+
                     <%= f.submit 'OK', class:' d-block mb-3 btn-ghost' %>
                   <% end %>
                 </div>

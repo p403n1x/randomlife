@@ -1,6 +1,7 @@
 let initRoulette = () => {
 
 var carousel = document.querySelector('.carousel');
+var infinitRot = document.querySelector('.infinitrot');
 
 if (carousel) {
   var cells = carousel.querySelectorAll('.carousel__cell');
@@ -13,7 +14,7 @@ if (carousel) {
     let cellCount = carousel.dataset.ucount;
     let winR = document.getElementById('winner');
     let launch = document.getElementById('launch');
-    const audio = new Audio('/wheelsound.mp3');
+    const audio = document.querySelector('audio');
 
 
     function winnerFunction() {
@@ -47,6 +48,11 @@ if (carousel) {
       carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
       rotateFn + '(' + angle + 'deg)';
       audio.play();
+
+      infinitRot.style.transform = 'translateZ(' + -radius + 'px) ' +
+      rotateFn + '(' + angle + 'deg)';
+      audio.play();
+
     };
 
    const jokerButton = document.querySelector('.joker-button');

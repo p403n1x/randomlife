@@ -8,11 +8,11 @@ class ActionsController < ApplicationController
   end
 
   def create
-    @options = Option.where(category_id: params[:category_id])
+    @options = Option.where({category_id: params[:category_id], selected: nil})
     @choice = @options.sample
     @action = Action.new(group: current_user.group, option: @choice)
     if @action.save
-    @action.option.update(selected: true)
+    # @action.option.update(selected: true)
     redirect_to action_path(@action, @choiceindex)
     else
       redirect_to category_options_path(@category)
@@ -21,9 +21,10 @@ class ActionsController < ApplicationController
 
   def show
     @action = Action.find(params[:id])
-    @options = Option.where(category_id: @action.option.category.id)
+    @options = Option.where({category_id: @action.option.category.id, selected: nil})
     @choiceindex = @options.find_index { |w| w == @action.option }
     @cellscount = @options.count
+    @action.option.update(selected: true)
   end
 
   def destroy

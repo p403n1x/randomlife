@@ -25,7 +25,7 @@ before_action :set_option, only: [:show, :update, :destroy]
 
   def update
     if @option.update(option_params)
-      redirect_to option_path(@option)
+      redirect_to category_options_path(@option.category_id)
     else
       render :show
     end
@@ -48,6 +48,6 @@ before_action :set_option, only: [:show, :update, :destroy]
   end
 
   def option_params
-    params.require(:option).permit(:name)
+    params.require(:option).permit(:name, :selected)
   end
 end

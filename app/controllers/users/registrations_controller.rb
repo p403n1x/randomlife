@@ -14,18 +14,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
       password: params['user']['password']
       password_confirmation: params['user']['password_confirmation']
       )
+      redirect_to group_path
 
-    if user
-      session[:user_id] = user.id
-      render json: {
-        status: :created,
-        user: :user
-        }
-        redirect_to new_group_path(@group)
-    else
-      render json { status: 500}
-    end
-  end
+  #   if user
+  #     session[:user_id] = user.id
+  #     render json: {
+  #       status: :created,
+  #       user: :user
+  #       }
+
+  #   else
+  #     render json { status: 500}
+  #   end
+  # end
 end
   # GET /resource/sign_up
   # def new
@@ -61,7 +62,7 @@ end
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -73,10 +74,10 @@ end
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  #The path used after sign up.
+   def after_sign_up_path_for(resource)
+    group_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

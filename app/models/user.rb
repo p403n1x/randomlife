@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   belongs_to :group, optional: true
+  has_one_attached :photo
   #validates :first_name, presence: true
   #validates :first_name, uniqueness: { scope: :last_name }
   #validates :last_name, presence: true

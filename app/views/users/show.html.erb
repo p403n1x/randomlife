@@ -3,10 +3,9 @@
     <div class="row">
 
         <div class="height-100vh" style="width: 27em; align-content: space-around;">
-          <% if @user.image %>
-          <%= image_tag @user.image, class:"avatar-large-bordered displayed mt-4" %>
-          <% else %>
-          <% end %>
+          <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, class:"avatar-large-bordered displayed mt-4" %>
+              <% end %>
           <div class="card-body text-center">
             <div class="card-profile p-3 ">
               <h5 class="d-inline card-title" style="color: #E46A2D;"> <strong> <%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %></strong> </h5>
@@ -46,7 +45,7 @@
                     <%=  f.input :nickname, value: :nickname%>
                     <%=  f.input :email, value: :email%>
                     <%=  f.input :phone_number, value: :phone_number%>
-                    <%=  f.input :image, value: :image%>
+                    <%= f.input :photo, as: :file %>
                     <%= f.submit 'OK', class:' d-block mb-3 btn-ghost' %>
                   <% end %>
                 </div>

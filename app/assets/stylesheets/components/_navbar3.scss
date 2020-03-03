@@ -60,7 +60,7 @@ Hamburger menu
   position: relative;
   z-index: 4;
   top: 48px;
-  left: 155px;
+  left: 170px;
   width: 44px;
   height: 44px;
   overflow: hidden;
@@ -188,6 +188,7 @@ Navigation
 
 .nav a {
   display: block;
+  line-height: 26px;
   padding: .4em 0;
   font-size: 20px;
   font-weight: bold;

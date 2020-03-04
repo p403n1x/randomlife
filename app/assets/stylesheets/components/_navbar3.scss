@@ -213,6 +213,10 @@ Navigation
   text-align: justify;
 }
 
+.nav a:hover {
+  color: #8ebe79;
+}
+
 .nav-open .nav a {
   animation: slide-links .4s .2s backwards;
 }

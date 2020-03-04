@@ -1,8 +1,9 @@
 class OptionCategoriesController < ApplicationController
 
   def index
-    @categories = Category.all
+    @categories = current_user.group.categories
     @category = Category.new
+    # @last_action = Action.where(group_id: current_user.group).order("created_at").last
   end
 
   def create

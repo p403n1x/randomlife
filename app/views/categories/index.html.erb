@@ -1,5 +1,5 @@
 
-<div class="container mt-3 dflex" style="align-content: center;">
+<div class="container dflex" style="align-content: center;">
 <ul class="list-inline tabs-underlined mb-3">
   <li class="tab-underlined active">
     <%= link_to "Who?", categories_path %>
@@ -10,7 +10,7 @@
 
   <div class="row ">
     <div class="col-md-6">
-      <button type="button" class="btn-ghost mb-3" style="border: transparent;" data-toggle="modal" data-target="#exampleModal">Add category</button>
+      <button type="button" class="btn-ghost mb-3" style="border: transparent;" data-toggle="modal" data-target="#exampleModal">Add a chore</button>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -25,7 +25,12 @@
                 <div class="container formnew">
                 <%= simple_form_for @category do |f| %>
                 <%= f.input :title %>
-                <%= f.input :photo, as: :file %>
+                <label class="btn-ghost mb-3">
+                  Add a picture!
+                  <span style="display:none;">
+                    <%= f.input :photo, as: :file %>
+                  </span>
+                </label>
                 <%= f.input :kind, input_html:{value: "Task"}, as: :hidden %>
                 <br>
                 <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>

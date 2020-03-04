@@ -15,7 +15,9 @@
     <% @users.each do |user| %>
       <div class="carousel__cell">
         <div class="d-flex flex-column">
-          <div class="img-avt <%= user.id %>"><%= image_tag "#{user.image}", size: "70x70", class: "rounded-circle" %></div>
+          <% if user.photo.attached? %>
+          <div class="img-avt <%= user.id %>"><%= cl_image_tag "#{user.photo.key}", size: "70x70", class: "rounded-circle" %></div>
+            <% end %>
           <div class="nkn-avt"><%= user.nickname %></div>
           <div class="nkn-tsk"><%= user.tasks.nil? ? '': (user.tasks.last.nil? || user.tasks.last.id == @task.id ? '' : "last : #{user.tasks.last.name}") %></div>
         </div>
@@ -26,7 +28,6 @@
 <h2 id="winner" style="display: none; color: #4A4A4A;">The winner is <strong style="color: #E46A2D;"><%= @choice.nickname.capitalize %></strong> !!</h2>
 <br>
 <div class="carousel-options">
-  <audio src='audio/wheelsound.mp3'></audio>
   <div id="launch" style="display: initial;">
     <button class="joker-button heartbeat btn btn-ghost" style="background-color: white; border: transparent;">GO !</button>
   </div>

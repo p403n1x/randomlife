@@ -1,0 +1,7 @@
+<p>Hi <%= @user.email %></p>
+
+<p>Welcome to Random Life! Click the link to sign up to your group:</p>
+<%= link_to 'Follow this link', "http://randomlife.herokuapp.com/users/sign_in?email=#{ @user.email }&password=#{ @password }" %>
+<p>Your email is: <%= @user.email %></p>
+<p>Your password is: <%= @user.password %></p>
+<p>See you there!</p>

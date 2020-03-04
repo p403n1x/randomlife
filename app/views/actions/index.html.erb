@@ -13,9 +13,9 @@
     <% @actions.each do |action| %>
       <ul class="list-group list-group-flush m-2">
 
-        <li class="list-group-item m-2" style="border-radius: 5px;">
+        <li class="list-group-item m-2" style="border-radius: 5px; opacity: 0.9;">
           <h5 style="color: #E46A2D"> <strong> <%= action.option.category.title.capitalize %></strong></h5>
-          <%= action.option.name.capitalize %>
+          <p> <%= action.option.name.capitalize %> </p>
           <br>
             <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1 my-3">
               <%= link_to "Done !", action_path(action), method: :delete, data: { confirm: "Are you sure you have completed #{action.option.category.title.downcase} #{action.option.name} with your amazing group?" }, class:'btn-ghost'%>

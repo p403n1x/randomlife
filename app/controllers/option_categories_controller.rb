@@ -7,8 +7,9 @@ class OptionCategoriesController < ApplicationController
   end
 
   def create
-  @category = Category.new(category_params)
-  @group = current_user.group
+    @categories = current_user.group.categories
+    @category = Category.new(category_params)
+    @group = current_user.group
 
     if @category.save
       Groupcategory.create(group: @group, category: @category)

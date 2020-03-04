@@ -25,7 +25,12 @@
                 <div class="container formnew">
                 <%= simple_form_for @category, url: option_categories_path, method: :post do |f| %>
                 <%= f.input :title %>
-                <%= f.input :photo, as: :file %>
+                <label class="btn-ghost mb-3">
+                  Add a picture!
+                  <span style="display:none;">
+                    <%= f.input :photo, as: :file %>
+                  </span>
+                </label>
                 <%= f.input :kind, input_html:{value: "Event"}, as: :hidden %>
                 <br>
                 <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>

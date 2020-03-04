@@ -15,8 +15,11 @@
 
         <li class="list-group-item m-2" style="border-radius: 5px;">
           <h5 style="color: #E46A2D"> <strong> <%= action.option.category.title.capitalize %></strong></h5>
-          <%= action.option.name %>
-          <%= link_to "Done !", action_path(action), method: :delete, data: { confirm: "Are you sure you have completed #{action.option.category.title.downcase} #{action.option.name} with your amazing group?" }, class:'btn-ghost'%>
+          <%= action.option.name.capitalize %>
+          <br>
+            <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1 my-3">
+              <%= link_to "Done !", action_path(action), method: :delete, data: { confirm: "Are you sure you have completed #{action.option.category.title.downcase} #{action.option.name} with your amazing group?" }, class:'btn-ghost'%>
+            </div>
         </li>
       </ul>
     <% end %>

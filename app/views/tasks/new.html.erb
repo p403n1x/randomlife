@@ -3,7 +3,7 @@
   <div class="row">
     <div class="container formnew my-4" style="color: #4A4A4A">
       <%= simple_form_for [@category, @task] do |f| %>
-        <%= f.input :name, label: "Who is #{@category.title.downcase}...? (put your task)" %>
+        <%= f.input :name, label: "What exactly? (put your task)" %>
         <%= f.input :start_date, as: :string, input_html:{id: 'calendar'} %>
         <br>
         <%= f.button :submit, 'OK!', class:'btn btn-ghost', style:'background-color: white; border: transparent;' %>

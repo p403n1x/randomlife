@@ -5,7 +5,7 @@ body {
 }
 
 .scene {
-  border: 1px solid #CCC;
+  // border: 1px solid #CCC;
   margin: 40px 0;
   position: relative;
   width: 210px;
@@ -63,9 +63,10 @@ margin-top: -15px;
 }
 
 .nkn-tsk {
-  font-size: 10px;
+  font-size: 30px;
   text-align: center;
-  margin-top: -100px;
+  margin-top: 0px;
+  color: $orange;
 }
 
 .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 95%, 1); }
@@ -98,6 +99,8 @@ margin-top: -15px;
 
 .heartbeat {
   animation: heartbeat 1.5s ease-in-out infinite both;
+  font-size: 30px !important;
+  font-weight: bold !important;
 }
 
 @keyframes heartbeat {

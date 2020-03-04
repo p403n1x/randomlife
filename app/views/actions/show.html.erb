@@ -15,8 +15,7 @@
     <% @options.each do |option| %>
       <div class="carousel__cell">
         <div class="d-flex flex-column">
-          <div class="nkn-avt"><%= option.name %></div>
-          <div class="nkn-tsk"><%= option.selected.nil? ? '' : option.selected %></div>
+          <div class="nkn-tsk"><%= option.name %></div>
         </div>
         </div>
     <% end %>
@@ -28,6 +27,9 @@
   <div id="launch" style="display: initial;">
     <button class="joker-button heartbeat btn btn-ghost" style="background-color: white; border: transparent;">GO !</button>
   </div>
-
+  <div class="mt-4" id="back" style="display: none;">
+    <%= link_to 'Go to Group Activities !', actions_path, class: 'btn btn-ghost', style: 'background-color: white; border: transparent;' %>
+    <%= link_to 'Back to Dashboard !', categories_path, class: 'btn btn-ghost', style: 'background-color: white; border: transparent;' %>
+  </div>
 </div>
 

@@ -24,7 +24,6 @@ class Users::SessionsController < Devise::SessionsController
 
 
 
-end
 
   # GET /resource/sign_in
   # def new

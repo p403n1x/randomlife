@@ -6,12 +6,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     user = User.create!(
-      first_name: params['user']['first_name']
-      last_name: params['user']['last_name']
-      nickname: params['user']['nickname']
-      email: params['user']['email']
-      phone_number: params['user']['phone_number']
-      password: params['user']['password']
+      first_name: params['user']['first_name'],
+      last_name: params['user']['last_name'],
+      nickname: params['user']['nickname'],
+      email: params['user']['email'],
+      phone_number: params['user']['phone_number'],
+      password: params['user']['password'],
       password_confirmation: params['user']['password_confirmation']
       )
       redirect_to group_path

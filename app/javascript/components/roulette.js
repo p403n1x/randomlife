@@ -14,7 +14,6 @@ if (carousel) {
     let cellCount = carousel.dataset.ucount;
     let winR = document.getElementById('winner');
     let launch = document.getElementById('launch');
-    const audio = document.querySelector('audio');
 
 
     function winnerFunction() {
@@ -47,12 +46,6 @@ if (carousel) {
       var angle = (theta * selectedIndex * -1);
       carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
       rotateFn + '(' + angle + 'deg)';
-      audio.play();
-
-      infinitRot.style.transform = 'translateZ(' + -radius + 'px) ' +
-      rotateFn + '(' + angle + 'deg)';
-      audio.play();
-
     };
 
    const jokerButton = document.querySelector('.joker-button');
@@ -63,7 +56,9 @@ if (carousel) {
       changeCarousel();
       selectedIndex = carousel.dataset.choice;
       rotateCarousel();
-      sleep(5000).then(() => {
+      const audio = new Audio('/wheelsound.mp3');
+      audio.play();
+      sleep(7000).then(() => {
       winnerFunction();
     });
     });

@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: calc(100vh - 66px);
+  height: 86vh;
   position: relative
 }
 
@@ -24,6 +24,7 @@
 
 .banner-home {
   background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), asset-url("house-sharing.jpg");
+  z-index: -1;
 }
 
 // .header-container {

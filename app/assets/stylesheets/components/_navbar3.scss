@@ -33,14 +33,13 @@ main {
     position: sticky;
     top: 0px;
     padding: 33px;
+    z-index: 1;
+    transition: all 0.3s ease-out;
   }
 
   .intro-solid {
-    position: sticky;
-    top: 0px;
-    padding: 33px;
-    background-color: hsla(60, 6%, 35%, .95);
-
+    background-color: #8ebe79 !important;
+    transition: all 0.5s ease-out;
   }
 }
 

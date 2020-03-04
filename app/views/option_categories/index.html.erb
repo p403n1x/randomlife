@@ -42,12 +42,20 @@
           <% if category.kind == "Event"  %>
             <div class="card mb-3" style="border-radius: 5px;">
               <% if category.photo.attached? %>
-              <%= image_tag category.photo, id:'img-card', style: 'object-fit: cover', height: 100 %>
+                <%= image_tag category.photo, id:'img-card', style: 'object-fit: cover', height: 100 %>
               <% end %>
               <%= link_to category_options_path(category) do %>
-                <div class="card-body">
-                  <h4 class="card-title" style="color: #E46A2D"> <strong> <%= category.title %> </strong> </h4>
-                  <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -158px; left: 175px; background-color: white' %>
+                <div class="card-body p-0">
+                  <h4 class="card-title pt-2" style="color: #E46A2D">
+                    <strong> <%= category.title %> </strong>
+                  </h4>
+                  <% if category.options.any? %>
+                    <p class='justify-content-center' style="color: #4A4A4A">
+                      <i class="far fa-arrow-alt-circle-right mr-2"></i>
+                      Last choice : <%= category.options.where(selected: true)[0].name %>
+                    </p>
+                  <% end %>
+                  <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -175px; left: 175px; background-color: white' %>
                 </div>
               <% end %>
             </div>

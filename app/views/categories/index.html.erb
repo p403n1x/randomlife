@@ -44,12 +44,20 @@
               <% if category.photo.attached? %>
               <%= image_tag category.photo, style: 'object-fit: cover', height: 100 %>
               <% end %>
-              <div class="card-body">
-                <h4 class="card-title" style="color: #E46A2D"> <strong> <%= category.title %> </strong> </h4>
-                <p class='d-inline justify-content-between mr-1' style="color: #4A4A4A"> Add a task </p>
-                <%= link_to "+", new_category_task_path(category), class:'btn-action' %>
-                <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -158px; left: 115px; background-color: white' %>
-              </div>
+              <%= link_to new_category_task_path(category) do %>
+                <div class="card-body p-0">
+                  <h4 class="card-title pt-2" style="color: #E46A2D">
+                    <strong><%= category.title %></strong>
+                  </h4>
+                  <% if category.tasks.any? %>
+                    <p class='justify-content-center' style="color: #4A4A4A">
+                      <i class="far fa-arrow-alt-circle-right mr-2"></i>
+                      Last task : <%= category.tasks.last.name %> by <%= category.tasks.last.user.nickname %>
+                    </p>
+                  <% end %>
+                  <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -175px; left: 175px; background-color: white' %>
+                </div>
+              <% end %>
             </div>
           <% end %>
         <% end %>

@@ -4,8 +4,10 @@ class CategoriesController < ApplicationController
   #skip_before_action :authenticate_user!
 
   def index
-    @categories = Category.all
+    @categories = current_user.group.categories
     @category = Category.new
+    @tasks = Task.all
+    @last_task = Task.where(user_id: current_user).order("created_at").last
   end
 
 

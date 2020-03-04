@@ -31,7 +31,6 @@
                     <%= f.input :photo, as: :file %>
                   </span>
                 </label>
-                <%= f.input :photo, as: :file %>
                 <%= f.input :kind, input_html:{value: "Task"}, as: :hidden %>
                 <br>
                 <%= f.button :submit, 'Create' , class:'btn btn-ghost' %>
@@ -51,7 +50,7 @@
               <%= image_tag category.photo, style: 'object-fit: cover', height: 100 %>
               <% end %>
               <div class="card-body">
-                <h4 class="card-title" style="color: #E46A2D"> <strong> <%= category.title %> </strong> </h4>
+                <h4 class="card-title" style="color: #E46A2D"> <strong> <%= category.title.capitalize %> </strong> </h4>
                 <p class='d-inline justify-content-between mr-1' style="color: #4A4A4A"> Add a task </p>
                 <%= link_to "+", new_category_task_path(category), class:'btn-action' %>
                 <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -158px; left: 115px; background-color: white' %>

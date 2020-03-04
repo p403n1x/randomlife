@@ -52,7 +52,7 @@
               <%= link_to new_category_task_path(category) do %>
                 <div class="card-body p-0">
                   <h4 class="card-title pt-2" style="color: #E46A2D">
-                    <strong><%= category.title %></strong>
+                    <strong><%= category.title.capitalize %></strong>
                   </h4>
                   <% if category.tasks.any? %>
                     <p class='justify-content-center' style="color: #4A4A4A">
@@ -60,7 +60,7 @@
                       Last task : <%= category.tasks.last.name %> by <%= category.tasks.last.user.nickname %>
                     </p>
                   <% end %>
-                  <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -175px; left: 175px; background-color: white' %>
+                  <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -142px; left: 175px; background-color: white' %>
                 </div>
               <% end %>
             </div>

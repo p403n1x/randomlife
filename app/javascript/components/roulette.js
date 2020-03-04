@@ -14,6 +14,7 @@ if (carousel) {
     let cellCount = carousel.dataset.ucount;
     let winR = document.getElementById('winner');
     let launch = document.getElementById('launch');
+    let back = document.getElementById('back');
 
 
     function winnerFunction() {
@@ -32,6 +33,13 @@ if (carousel) {
     }
   }
 
+    function showBackFunction() {
+    if(getComputedStyle(back).display != "none"){
+      back.style.display = "none";
+    } else {
+      back.style.display = "initial";
+    }
+  }
 
     function stopinfiniteRotate() {
       carousel.classList.remove('infinitrot', 'aucunsens');
@@ -60,6 +68,7 @@ if (carousel) {
       audio.play();
       sleep(7000).then(() => {
       winnerFunction();
+      showBackFunction();
     });
     });
       });

@@ -14,8 +14,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @group = Group.find(params[:group_id])
     @user.group = @group
-    @user.password = Devise.friendly_token
+    password = Devise.friendly_token.first(20)
+    @user.password = password
     @user.save!
+    UserMailer.with(user: @user, password: password).invitation.deliver_now
   end
 
   def update

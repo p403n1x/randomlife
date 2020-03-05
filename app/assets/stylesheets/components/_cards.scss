@@ -4,9 +4,12 @@
   grid-gap: 16px;
 }
 
-#img-card {
-  height: 100px;
-  object-fit: cover;
+.card-anim-body{
+  display: none;
+}
+
+#img-card:hover {
+  opacity: 1;
 }
 
 .btn-name {

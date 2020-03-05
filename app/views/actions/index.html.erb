@@ -24,9 +24,8 @@
         <li class="list-group-item m-2" style="border-radius: 5px; opacity: 0.9;">
           <h5 style="color: #E46A2D"> <strong> <%= action.option.category.title.capitalize %></strong></h5>
           <p> <%= action.option.name.capitalize %> </p>
-          <br>
             <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1 my-3">
-              <%= link_to "Done !", action_path(action), method: :delete, data: { confirm: "#{action.option.category.title.capitalize}, #{action.option.name.upcase}: have you done this with your amazing friends?" }, class:'btn-ghost', style:'border-color: transparent; padding: 8px 14px'%>
+              <%= link_to "Done !", action_path(action), method: :delete, data: { confirm: "#{action.option.category.title.capitalize}, #{action.option.name.upcase}: have you done this with your amazing friends?" }, class:'btn-ghost', style:'padding: 8px 14px'%>
             </div>
         </li>
       </ul>

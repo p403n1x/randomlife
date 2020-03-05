@@ -22,15 +22,16 @@
     <% end %>
   </div>
 </div>
-<h2 id="winner" style="display: none; color: #4A4A4A;">Option selected : <strong style="color: #E46A2D;"><%= @action.option.name %></strong> !!</h2>
+<h2 id="winner" style="display: none; color: white;"><strong style="color: #E46A2D;"><%= @action.option.name.capitalize %></strong> wins 🎊</h2>
 <br>
 <div class="carousel-options">
   <div id="launch" style="display: initial;">
     <button class="joker-button heartbeat btn btn-ghost" style="border: transparent;">GO !</button>
   </div>
+  <br>
   <div class="mt-4" id="back" style="display: none;">
-    <%= link_to 'Go to Group Activities !', actions_path, class: 'btn btn-ghost', style: 'border: transparent;' %>
-    <%= link_to 'Back to Dashboard !', categories_path, class: 'btn btn-ghost mt-3', style: 'border: transparent;' %>
+    <%= link_to 'Dashboard', categories_path, class: 'btn btn-ghost mr-5' %>
+    <%= link_to 'Group Activities', actions_path, class: 'btn btn-ghost' %>
   </div>
 </div>
 

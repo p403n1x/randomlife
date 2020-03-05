@@ -6,7 +6,8 @@
       <ul class="list-group list-group-flush m-2">
       <% @options.each do |option| %>
         <% if option.category == @category  %>
-          <li class="list-group-item m-2 py-3" style="border-radius: 5px; opacity: 0.9;"><h5 class="mb-3" style="color: #E46A2D"><strong><%= option.name.capitalize %></h5></strong>
+
+          <li class="list-group-item m-2 py-3" style="border-radius: 5px; opacity: 0.9;"><h5 class="mb-3" style="color: #E46A2D; text-overflow: ellipsis; word-wrap: break-word;"><strong><%= option.name.capitalize %></h5></strong>
             <%= link_to "x", option_path(option), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'background-color: white' %>
 
             <% if option.selected.nil? %>
@@ -51,11 +52,3 @@
     <%= link_to "OK !", category_actions_path(@category), method: 'create', class:'btn btn-ghost ml-5', style:'font-size: 14px;'%>
   </div>
 </div>
-
-
-
-
-
-
-
-

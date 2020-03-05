@@ -69,10 +69,11 @@ margin-top: -15px;
 }
 
 .nkn-tss {
-  font-size: 30px;
+  // font-size: 30px;
   text-align: center;
-  margin-top: 0px;
+  // margin-top: 0px;
   color: $orange;
+  line-height: normal;
 }
 
 .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 95%, 1); }

@@ -18,6 +18,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    @group = Group.find(params[:id])
+    @user = User.find(params[:user_id])
+    @user.destroy
+    redirect_to group_path
+  end
+
   def show
     @group = Group.find(params[:id])
     @user = User.new

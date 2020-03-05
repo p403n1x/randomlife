@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :option_categories, only: [:index, :new, :create, :destroy], shallow: true
   resources :actions, only: [:index]
   resources :groups, only: [:new, :create, :show] do
-    resources :users, only: [:create]
+    resources :users, only: [:create, :destroy]
   end
 end

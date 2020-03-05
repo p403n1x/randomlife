@@ -8,9 +8,8 @@
   display: none;
 }
 
-#img-card {
-  height: 100px;
-  object-fit: cover;
+#img-card:hover {
+  opacity: 1;
 }
 
 .btn-name {

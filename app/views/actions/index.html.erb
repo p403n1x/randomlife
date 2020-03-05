@@ -11,7 +11,7 @@
     <div class="grid my-3", style="display: grid;grid-template-columns: repeat(3, 1fr); grid-column-gap: 8px;grid-row-gap: 10px; border-color: transparent;">
       <% @users.each do |user| %>
         <% if user.photo.attached? %>
-          <div data-id="<%= user.id %>"><%= cl_image_tag "#{user.photo.key}", size: "70x70", class: "rounded-circle m-3" %></div>
+          <div data-id="<%= user.id %>"><%= cl_image_tag "#{user.photo.key}", size: "70x70", class: "avatar-large m-3" %></div>
         <% end %>
       <% end %>
     </div>

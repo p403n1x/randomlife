@@ -8,6 +8,12 @@
   display: none;
 }
 
+#img-card {
+  object-fit: cover;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
 #img-card:hover {
   opacity: 1;
 }

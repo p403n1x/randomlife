@@ -2,7 +2,7 @@
 
   <h1 class="my-3" style="color: white;"><strong>My Group Activities</strong></h1>
 
-    <div class="grid m-3", style="display: grid;grid-template-columns: repeat(3, 1fr);grid-template-rows: repeat(<%= (@cellscount / 3).round %>, 1fr);grid-column-gap: 8px;grid-row-gap: 10px; border: 1px solid grey; border-radius: 5px;">
+    <div class="grid m-3", style="display: grid;grid-template-columns: repeat(3, 1fr);grid-template-rows: repeat(<%= (@cellscount / 3).round %>, 1fr);grid-column-gap: 8px;grid-row-gap: 10px; border-color: transparent;">
       <% @users.each do |user| %>
         <% if user.photo.attached? %>
           <div data-id="<%= user.id %>"><%= cl_image_tag "#{user.photo.key}", size: "70x70", class: "rounded-circle m-3" %></div>

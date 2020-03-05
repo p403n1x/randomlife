@@ -17,7 +17,7 @@
                 </p>
                   <%= simple_form_for task, url: user_assigned_task_path(current_user, task), method: :patch, class:'d-inline' do |f| %>
                     <%= f.input :progress, input_html:{value: "done"}, as: :hidden %>
-                      <%= f.submit "Done !", class: "btn btn-ghost"  %>
+                      <%= f.submit "Done !", class:'btn-ghost', style:'border-color: transparent; padding: 12px 18px'  %>
                   <% end %>
             </li>
           </ul>

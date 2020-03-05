@@ -9,3 +9,6 @@ loadDynamicBannerText();
 import '../components/navbar3';
 
 import "../plugins/flatpickr";
+
+import { cardSlide } from "../components/card";
+cardSlide();

@@ -8,7 +8,9 @@
               <% end %>
           <div class="card-body text-center">
             <div class="card-profile p-3 ">
+              <% if @user.first_name && @user.last_name %>
               <h5 class="d-inline card-title mt-2" style="color: #E46A2D;"> <strong> <%= "#{@user.first_name.capitalize}  #{@user.last_name.capitalize}" %></strong> </h5>
+              <% end %>
               <p class="card-title"> <%= @user.nickname%> </p>
             </div>
             <br>

@@ -19,7 +19,7 @@
       <li> <%= link_to "Dashboard", categories_path %></li>
       <li> <%= link_to "My Profile", user_path(current_user) %></li>
       <li> <%= link_to "My Tasks", user_assigned_tasks_path(current_user) %></li>
-      <li> <%= link_to "Group Activities", actions_path %></li>
+      <li> <%= link_to "My Group", actions_path %></li>
       <br>
       <li class="mt-4"> <%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
     <% else %>

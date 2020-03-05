@@ -4,6 +4,10 @@
   grid-gap: 16px;
 }
 
+.card-anim-body{
+  display: none;
+}
+
 #img-card {
   height: 100px;
   object-fit: cover;

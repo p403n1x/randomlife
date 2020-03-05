@@ -57,8 +57,12 @@
                   </h4>
                   <% if category.options.any? %>
                     <p class='justify-content-center' style="color: #4A4A4A">
+                    <% if category.options.where(selected: true)[0].nil? %>
+                      <%= "" %>
+                    <% else %>
                       <i class="far fa-arrow-alt-circle-right mr-2"></i>
-                      Last choice : <%= category.options.where(selected: true)[0].name %>
+                    <%= "Last choice : #{category.options.where(selected: true)[0].name}" %>
+                    <% end %>
                     </p>
                   <% end %>
                   <%= link_to "x", category_path(category), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'position: relative; top: -142px; left: 175px; background-color: white' %>

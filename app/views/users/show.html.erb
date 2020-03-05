@@ -3,9 +3,7 @@
     <div class="row">
 
         <div class="height-100vh" style="width: 27em; align-content: space-around;">
-          <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key, class:"avatar-large-bordered displayed mt-4" %>
-              <% end %>
+          <%= default_photo_tag(@user, class: "avatar-large-bordered displayed mt-4") %>
           <div class="card-body text-center">
             <div class="card-profile p-3 ">
               <% if @user.first_name && @user.last_name %>

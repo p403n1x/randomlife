@@ -15,9 +15,9 @@
     <% @users.each do |user| %>
       <div class="carousel__cell">
         <div class="d-flex flex-column">
-          <% if user.photo.attached? %>
-          <div class="img-avt <%= user.id %>"><%= cl_image_tag "#{user.photo.key}", size: "70x70", class: "avatar-large" %></div>
-            <% end %>
+          <div class="img-avt <%= user.id %>">
+            <%= default_photo_tag(user, size: "70x70", class: "avatar-large") %>
+          </div>
           <div class="nkn-avt"><%= user.nickname %></div>
           <div class="nkn-tsk"><%= user.tasks.nil? ? '': (user.tasks.last.nil? || user.tasks.last.id == @task.id ? '' : "last task : #{user.tasks.last.name}") %></div>
         </div>

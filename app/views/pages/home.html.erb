@@ -4,19 +4,7 @@
     <br>
     <br>
     <% if user_signed_in? %>
-<!--       <div class="card-body text-center">
-        <div class="card-profile p-3 ">
-          <h5 class="d-inline card-title" style="color: #3B5F0D;"> <strong> <%= "cars 1" %></strong> </h5>
-          <p class="card-body m-2">🏠  <br> je suis un text </p>
-        </div>
-      </div>
-        <br>
-      <div class="card-body text-center">
-        <div class="card-profile mb-2">
-          <h5 class="d-inline card-title" style="color: #3B5F0D;"> <strong> <%= "card 2" %></strong> </h5>
-          <p class="card-body m-2">🏠  <br> je suis un text </p>
-        </div>
-      </div> -->
+      <strong><%= link_to 'ENTER', categories_path, class:'btn-enter' %></strong>
     <% else %>
       <strong><%= link_to 'Sign up', new_user_registration_path, class:'btn-home' %></strong>
     <% end %>

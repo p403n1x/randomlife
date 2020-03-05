@@ -47,7 +47,7 @@
           <% if category.kind == "Event"  %>
             <div class="card mb-3" style="border-radius: 5px;">
               <% if category.photo.attached? %>
-                <%= image_tag category.photo, id:'img-card', style: 'object-fit: cover', height: 100 %>
+                <%= image_tag category.photo, id:'img-card', style: 'object-fit: cover; border-radius: 5px;', height: 100 %>
               <% end %>
               <%= link_to category_options_path(category) do %>
                 <div class="card-body p-0">

@@ -42,7 +42,7 @@ body {
   height: 120px;
   left: 10px;
   top: 10px;
-  border: 1px solid black;
+  border: 2px solid white;
   line-height: 116px;
   font-size: 20px;
   font-weight: bold;
@@ -72,19 +72,30 @@ margin-top: -15px;
   // font-size: 30px;
   text-align: center;
   // margin-top: 0px;
-  color: $orange;
+  color: black;
   line-height: normal;
 }
 
-.carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+4) { background: hsla(120, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+5) { background: hsla(160, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+6) { background: hsla(200, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+7) { background: hsla(240, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+8) { background: hsla(280, 100%, 95%, 1); }
-.carousel__cell:nth-child(9n+0) { background: hsla(320, 100%, 95%, 1); }
+.carousel__cell:nth-child(9n+1) { background: hsla(  0, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+2) { background: hsla( 40, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+3) { background: hsla( 80, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+4) { background: hsla(120, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+5) { background: hsla(160, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+6) { background: hsla(200, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+7) { background: hsla(240, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+8) { background: hsla(280, 50%, 80%, 1); }
+.carousel__cell:nth-child(9n+0) { background: hsla(320, 50%, 80%, 1); }
+
+// .carousel__cell:nth-child(9n+1) { background: #5EC9C6; }
+// .carousel__cell:nth-child(9n+2) { background: #5DBE9B; }
+// .carousel__cell:nth-child(9n+3) { background: #8FBE7A; }
+// .carousel__cell:nth-child(9n+4) { background: #B7BD5D; }
+// .carousel__cell:nth-child(9n+5) { background: #D7BC47; }
+// .carousel__cell:nth-child(9n+6) { background: #F8BC32; }
+// .carousel__cell:nth-child(9n+7) { background: hsla(240, 100%, 99%, 1); }
+// .carousel__cell:nth-child(9n+8) { background: hsla(280, 100%, 99%, 1); }
+// .carousel__cell:nth-child(9n+0) { background: hsla(320, 100%, 99%, 1); }
+
 
 .carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(288px); }
 .carousel__cell:nth-child(2) { transform: rotateY( 40deg) translateZ(288px); }
@@ -133,4 +144,7 @@ margin-top: -15px;
     animation-timing-function: ease-out;
   }
 }
+
+
+
 

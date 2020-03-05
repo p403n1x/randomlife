@@ -11,10 +11,10 @@
 
             <% if option.selected.nil? %>
 
-              <%= link_to '✔', option_path(option, option: {selected: true}), method: :patch, value: option, class:'btn-ghost', style:'background-color: white' %>
+              <%= link_to '✔', option_path(option, option: {selected: true}), method: :patch, value: option, class:'btn-action', style:'background-color: white' %>
             <% else %>
 
-              <%= link_to 'Include in wheel', option_path(option, option: {selected: nil}), method: :patch, value: option, class:'btn-ghost', style:'background-color: white' %>
+              <%= link_to 'Include in wheel', option_path(option, option: {selected: nil}), method: :patch, value: option, class:'btn-action', style:'background-color: white' %>
             <% end %>
           </li>
         <% end %>

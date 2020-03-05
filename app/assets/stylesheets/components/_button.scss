@@ -113,3 +113,28 @@
   text-decoration: none;
   color: #4A4A4A;
 }
+
+
+.btn-action-o {
+  padding: 4px 8px;
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 12px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.btn-action-o:hover {
+  opacity: 1;
+  color: #4A4A4A;
+  border-color: #E46A2D;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+
+}
+
+.btn-action-o a {
+  text-decoration: none;
+  color: #4A4A4A;
+}

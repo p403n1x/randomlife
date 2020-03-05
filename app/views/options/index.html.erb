@@ -6,7 +6,7 @@
       <ul class="list-group list-group-flush m-2">
       <% @options.each do |option| %>
         <% if option.category == @category  %>
-          <li class="list-group-item m-2"><p><%= option.name.capitalize %></p>
+          <li class="list-group-item m-2"><p style="text-overflow: ellipsis; word-wrap: break-word;"><%= option.name.capitalize %></p>
             <%= link_to "x", option_path(option), method: :delete, data: { confirm: "Are you sure?" }, class:'btn-action', style:'background-color: white' %>
 
             <% if option.selected.nil? %>
@@ -52,11 +52,3 @@
   </div>
 
 </div>
-
-
-
-
-
-
-
-

@@ -15,7 +15,8 @@
     <% @options.each do |option| %>
       <div class="carousel__cell">
         <div class="d-flex flex-column">
-          <div class="nkn-tss"><%= option.name %></div>
+          <div style="line-height: 4vh;"><i class="fas fa-thumbtack" style="opacity: 0;"></i></div>
+          <div class="nkn-tss" id='fittext<%= option.id %>' style="text-overflow: ellipsis; word-wrap: break-word;"><%= option.name %></div>
         </div>
         </div>
     <% end %>
@@ -33,3 +34,9 @@
   </div>
 </div>
 
+<% @options.each do |option| %>
+<script src="/fittext.js"></script>
+  <script type="text/javascript">
+    fitText(document.getElementById('fittext<%= option.id %>'), 1.2)
+  </script>
+  <% end %>

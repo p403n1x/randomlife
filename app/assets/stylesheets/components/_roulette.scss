@@ -27,6 +27,19 @@ body {
   animation: rotation 20s infinite linear;
 }
 
+.autre {
+  animation: rotat 20s infinite linear;
+}
+
+@keyframes rotat {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(359deg);
+  }
+}
+
 @keyframes rotation {
   from {
     transform: rotateY(0deg);

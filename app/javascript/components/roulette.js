@@ -43,7 +43,12 @@ if (carousel) {
 
     function stopinfiniteRotate() {
       carousel.classList.remove('infinitrot', 'aucunsens');
-    }
+      carousel.classList.remove('autre', 'aucunsens');
+    };
+
+    function inverseRotate() {
+      document.querySelector('.infinitrot').classList.toggle('autre');
+    };
 
 
       function sleep(ms) {
@@ -69,6 +74,8 @@ if (carousel) {
       sleep(7000).then(() => {
       winnerFunction();
       showBackFunction();
+      const audioWin = new Audio('/winwin.mp3');
+      audioWin.play();
     });
     });
       });
@@ -92,13 +99,17 @@ if (carousel) {
       };
 
       rotateCarousel();
+
     };
 
     var orientationRadios = document.querySelectorAll('input[name="orientation"]');
     ( function() {
       for ( var i=0; i < orientationRadios.length; i++ ) {
         var radio = orientationRadios[i];
-        radio.addEventListener( 'change', onOrientationChange );
+        radio.addEventListener( 'change', function() {
+          onOrientationChange();
+          inverseRotate();
+          });
       }
     })();
 
@@ -107,7 +118,7 @@ if (carousel) {
       isHorizontal = checkedRadio.value == 'horizontal';
       rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
       changeCarousel();
-    }
+    };
 
     // set initials
     onOrientationChange();

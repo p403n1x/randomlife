@@ -5,7 +5,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
-    :domain => 'https://randomlife.herokuapp.fun',
+    :domain => 'https://randomlife.fun',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
@@ -32,7 +32,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  config.action_mailer.default_url_options = { host: 'https://randomlife.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'https://randomlife.fun'}
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier

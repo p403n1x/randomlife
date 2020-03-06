@@ -45,6 +45,10 @@ if (carousel) {
       carousel.classList.remove('infinitrot', 'aucunsens');
     }
 
+    function inverseRotate() {
+      carousel.classList.remove('infinitrot', 'autre');
+    }
+
 
       function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -69,6 +73,7 @@ if (carousel) {
       sleep(7000).then(() => {
       winnerFunction();
       showBackFunction();
+      inverseRotate();
     });
     });
       });
@@ -92,6 +97,7 @@ if (carousel) {
       };
 
       rotateCarousel();
+
     };
 
     var orientationRadios = document.querySelectorAll('input[name="orientation"]');
@@ -107,7 +113,7 @@ if (carousel) {
       isHorizontal = checkedRadio.value == 'horizontal';
       rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
       changeCarousel();
-    }
+    };
 
     // set initials
     onOrientationChange();

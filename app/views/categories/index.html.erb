@@ -55,8 +55,12 @@
                 <div class="card-anim-body py-2">
                   <% if category.tasks.any? %>
                     <p class='justify-content-center' style="color: #4A4A4A">
+                      <% if category.task.last.user.nickname.nil?  %>
                       <!-- <i class="far fa-arrow-alt-circle-right mr-2"></i> -->
-                      Last task : <%= category.tasks.last.name %> by <%= category.tasks.last.user.nickname %>
+                        <%= "" %>
+                      <% else %>
+                        Last task : <%= category.tasks.last.name %> by <%= category.tasks.last.user.nickname %>
+                      <% end %>
                     </p>
                   <% end %>
                   <div class="d-flex justify-content-between mx-3">

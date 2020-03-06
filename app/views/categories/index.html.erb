@@ -55,7 +55,7 @@
                 <div class="card-anim-body py-2">
                   <% if category.tasks.any? %>
                     <p class='justify-content-center' style="color: #4A4A4A">
-                      <% if category.tasks.last.user.nickname.nil?  %>
+                      <% if category.tasks.last.user.nil?  %>
                       <!-- <i class="far fa-arrow-alt-circle-right mr-2"></i> -->
                         <%= "" %>
                       <% else %>

@@ -1,10 +1,12 @@
 class ActionsController < ApplicationController
 
   def index
-    @actions = Action.all
-    @group = current_user.group_id
+    @actions = current_user.group.actions
+
+    @group = current_user.group
+    # @actions = Action.where(groupe_id: @group)
     @users = User.where(group_id: current_user.group_id)
-    @cellscount = @users.count
+    # @cellscount = @users.count
   end
 
   def create
